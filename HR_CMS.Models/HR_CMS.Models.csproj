@@ -57,7 +57,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="02 Contact\ContactCreate.cs" />
+    <Compile Include="02 Contact\ContactDetail.cs" />
+    <Compile Include="02 Contact\ContactListItem.cs" />
+    <Compile Include="04 Dept\DeptCreate.cs" />
+    <Compile Include="04 Dept\DeptDetail.cs" />
+    <Compile Include="04 Dept\DeptListItem.cs" />
+    <Compile Include="01 Personnel\PersonnelCreate.cs" />
+    <Compile Include="01 Personnel\PersonnelDetail.cs" />
+    <Compile Include="01 Personnel\PersonnelListItem.cs" />
+    <Compile Include="05 Position\PositionCreate.cs" />
+    <Compile Include="05 Position\PositionDetail.cs" />
+    <Compile Include="05 Position\PositionListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="03 WorkInfo\WorkInfoCreate.cs" />
+    <Compile Include="03 WorkInfo\WorkInfoDetail.cs" />
+    <Compile Include="03 WorkInfo\WorkInfoEdit.cs" />
+    <Compile Include="03 WorkInfo\WorkInfoListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -69,6 +85,7 @@
       <Name>HR_CMS.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

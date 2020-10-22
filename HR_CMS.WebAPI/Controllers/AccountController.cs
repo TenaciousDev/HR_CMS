@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using HR_CMS.WebAPI.Models;
 using HR_CMS.WebAPI.Providers;
 using HR_CMS.WebAPI.Results;
+using HR_CMS.Data;
 
 namespace HR_CMS.WebAPI.Controllers
 {

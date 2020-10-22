@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using HR_CMS.WebAPI.Models;
+using HR_CMS.Data;
 
 namespace HR_CMS.WebAPI.Providers
 {
