@@ -9,5 +9,7 @@ namespace HR_CMS.Models
 {
     public class DeptCreate
     {
+        [Required]
+        public string DeptName { get; set; }
     }
 }
