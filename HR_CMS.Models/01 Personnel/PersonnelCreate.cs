@@ -27,6 +27,7 @@ namespace HR_CMS.Models
         [Required]
         public DateTimeOffset DOH { get; set; }
 
+        public DateTimeOffset? DOT { get; set; }
         public bool IsActive { get; set; }
     }
 }
