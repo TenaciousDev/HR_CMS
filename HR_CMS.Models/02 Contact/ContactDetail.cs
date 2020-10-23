@@ -12,8 +12,6 @@ namespace HR_CMS.Models
     public class ContactDetail
     {
         public int PersonnelId { get; set; }
-        [ForeignKey(nameof(PersonnelId))]
-        public virtual Personnel Personnel { get; set; }
 
         public int ContactId { get; set; }
 

@@ -18,9 +18,6 @@ namespace HR_CMS.Data
         public int ContactId { get; set; }
 
         [Required]
-        public int SSN { get; set; }
-
-        [Required]
         public int PhoneNumber { get; set; }
 
         [Required]
