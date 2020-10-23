@@ -10,6 +10,9 @@ namespace HR_CMS.Models
     public class ContactCreate
     {
         [Required]
+        public int PersonnelId { get; set; }
+
+        [Required]
         public int PhoneNumber { get; set; }
 
         [Required]
