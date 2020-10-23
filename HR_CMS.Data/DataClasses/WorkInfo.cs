@@ -21,11 +21,28 @@ namespace HR_CMS.Data
         [ForeignKey(nameof(PositionId))]
         public virtual Position PositionHeld { get; set; }
         public decimal Wage { get; set; }
-        public bool HasBenefits { get; set; }
+        public bool HasBenefits
+        {
+            get
+            {
+                if ((DateTime.Now - StartOfBenefits).TotalSeconds >= 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
         public DateTimeOffset StartOfBenefits { get; set; } //look into timespan
         public string WorkEmail { get; set; }
         public DateTimeOffset LastReview { get; set; }
-        public DateTimeOffset NextReview { get; set; }
+        public DateTimeOffset NextReview //set to quarterly reviews as default
+        {
+            get
+            {
+                DateTimeOffset result = LastReview.AddDays(90);
+                return result;
+            }
+        }
         public double VacationDaysAccruedLifetime 
         {
             //currently returns the amount of days passed since date of benefit start. Currently runs on requiring user input to determine the vacationVariable as it would be unfeasable for the programmers to determine how much vacation time the company gives its employees and it required a placeholder.
@@ -90,9 +107,29 @@ namespace HR_CMS.Data
                 return total;
             }
         }
-        public double PersonalDaysAccruedForPeriod { get; set; }
+        public double PersonalDaysAccruedForPeriod
+        {
+            get
+            {
+                //console user input variables
+                DateTimeOffset startOfPeriod = Convert.ToDateTime(Console.ReadLine());
+                int personalVariable = Int32.Parse(Console.ReadLine());
+                //actual method
+                double totalDaysSincePeriodStart = (DateTimeOffset.Now - startOfPeriod).TotalDays;
+                double accrued = totalDaysSincePeriodStart / personalVariable;
+                return accrued;
+            }
+        }
 
-        public double PersonalDaysUsedForPeriod { get; set; }
+        public double PersonalDaysUsedForPeriod
+        {
+            get
+            {
+                int newPersonalSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedForPeriod + newPersonalSubmission;
+                return total;
+            }
+        }
 
         public double SickDaysAccruedLifetime
         {
@@ -114,7 +151,27 @@ namespace HR_CMS.Data
                 return total;
             }
         }
-        public double SickDaysAccruedForPeriod { get; set; }
-        public double SickDaysUsedForPeriod { get; set; }
+        public double SickDaysAccruedForPeriod
+        {
+            get
+            {
+                //console user input variables
+                DateTimeOffset startOfPeriod = Convert.ToDateTime(Console.ReadLine());
+                int diseaseVariable = Int32.Parse(Console.ReadLine());
+                //actual method
+                double totalDaysSincePeriodStart = (DateTimeOffset.Now - startOfPeriod).TotalDays;
+                double accrued = totalDaysSincePeriodStart / diseaseVariable;
+                return accrued;
+            }
+        }
+        public double SickDaysUsedForPeriod
+        {
+            get
+            {
+                int newDiseaseSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedForPeriod + newDiseaseSubmission;
+                return total;
+            }
+        }
     }
 }
