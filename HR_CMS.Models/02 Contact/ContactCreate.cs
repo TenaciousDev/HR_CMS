@@ -9,10 +9,13 @@ namespace HR_CMS.Models
 {
     public class ContactCreate
     {
+        [Required]
         public int PhoneNumber { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
+        [Required]
         public string Address { get; set; }
     }
 }
