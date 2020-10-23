@@ -22,7 +22,7 @@ namespace HR_CMS.Data
         public DateTimeOffset DOB { get; set; } //Date Of Birth
         [Required]
         public DateTimeOffset DOH { get; set; } //Date Of Hire
-        public int? DOT { get; set; } //Date Of Termination
+        public DateTimeOffset? DOT { get; set; } //Date Of Termination
         public bool IsActive
         {
             get
