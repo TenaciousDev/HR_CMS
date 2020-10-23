@@ -32,7 +32,15 @@ namespace HR_CMS.Data
                 return false;
             }
         }
-        public DateTimeOffset StartOfBenefits { get; set; } //look into timespan
+        public DateTimeOffset StartOfBenefits 
+        {
+            get
+            {
+                Personnel pers = new Personnel();
+                DateTimeOffset result = pers.DOH.AddDays(90);
+                return result;
+            }
+        }
         public string WorkEmail { get; set; }
         public DateTimeOffset LastReview { get; set; }
         public DateTimeOffset NextReview //set to quarterly reviews as default
