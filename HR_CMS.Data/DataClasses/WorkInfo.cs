@@ -38,17 +38,82 @@ namespace HR_CMS.Data
                 return accrued;
             }
         }
-        public double VacationDaysUsedLifetime { get; set; }
-        public double VacationDaysAccruedForPeriod { get; set; }
-        public double VacationDaysUsedForPeriod { get; set; }
+        public double VacationDaysUsedLifetime 
+        {
+            get
+            {
+                int newVacationSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedLifetime + newVacationSubmission;
+                return total;
+            }
+        }
+        public double VacationDaysAccruedForPeriod 
+        {
+            get
+            {
+                //console user input variables
+                DateTimeOffset startOfPeriod =Convert.ToDateTime(Console.ReadLine());
+                int vacationVariable = Int32.Parse(Console.ReadLine());
+                //actual method
+                double totalDaysSincePeriodStart = (DateTimeOffset.Now-startOfPeriod).TotalDays;
+                double accrued = totalDaysSincePeriodStart / vacationVariable;
+                return accrued;
+            }
+        }
+        public double VacationDaysUsedForPeriod
+        {
+            get
+            {
+                int newVacationSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedForPeriod + newVacationSubmission;
+                return total;
+            }
+        }
 
-        public double PersonalDaysAccruedLifetime { get; set; }
-        public double PersonalDaysUsedLifetime { get; set; }
+        public double PersonalDaysAccruedLifetime
+        {
+            get
+            {
+
+                int personalVariable = Int32.Parse(Console.ReadLine());
+                double totalDaysSinceBenefitStart = (DateTimeOffset.Now - StartOfBenefits).TotalDays;
+                double accrued = totalDaysSinceBenefitStart / personalVariable;
+                return accrued;
+            }
+        }
+        public double PersonalDaysUsedLifetime
+        {
+            get
+            {
+                int newPersonalSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedLifetime + newPersonalSubmission;
+                return total;
+            }
+        }
         public double PersonalDaysAccruedForPeriod { get; set; }
+
         public double PersonalDaysUsedForPeriod { get; set; }
 
-        public double SickDaysAccruedLifetime { get; set; }
-        public double SickDaysUsedLifetime { get; set; }
+        public double SickDaysAccruedLifetime
+        {
+            get
+            {
+
+                int diseaseVariable = Int32.Parse(Console.ReadLine());
+                double totalDaysSinceBenefitStart = (DateTimeOffset.Now - StartOfBenefits).TotalDays;
+                double accrued = totalDaysSinceBenefitStart / diseaseVariable;
+                return accrued;
+            }
+        }
+        public double SickDaysUsedLifetime
+        {
+            get
+            {
+                int newDiseaseSubmission = Int32.Parse(Console.ReadLine());
+                double total = VacationDaysUsedLifetime + newDiseaseSubmission;
+                return total;
+            }
+        }
         public double SickDaysAccruedForPeriod { get; set; }
         public double SickDaysUsedForPeriod { get; set; }
     }
