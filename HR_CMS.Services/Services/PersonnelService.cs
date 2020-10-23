@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HR_CMS.Services
 {
-    class PersonnelService
+    public class PersonnelService
     {
     }
 }
