@@ -11,5 +11,6 @@ namespace HR_CMS.Models
     {
         [Required]
         public string DeptName { get; set; }
+        public int PersonnelCount { get; set; }
     }
 }
