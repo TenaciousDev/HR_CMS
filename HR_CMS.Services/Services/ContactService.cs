@@ -8,5 +8,6 @@ namespace HR_CMS.Services
 {
     class ContactService
     {
+
     }
 }
