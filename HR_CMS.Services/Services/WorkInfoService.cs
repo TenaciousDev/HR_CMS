@@ -73,7 +73,7 @@ namespace HR_CMS.Services
                 };
             }
         }
-                public WorkInfoDetail GetDeptByPersonnelId(int id)
+        public WorkInfoDetail GetDeptByPersonnelId(int id)
                 {
                     using (var ctx = new ApplicationDbContext())
                     {
@@ -100,9 +100,11 @@ namespace HR_CMS.Services
                 }
             }
         }
-        /*public WorkInfoDetail GetSupervisorByPersonnelId(int id)
+
+        //Stretch Goal
+/*
+        public WorkInfoDetail GetSupervisorByPersonnelId(int id)
         {
-            {
                 using (var ctx = new ApplicationDbContext())
                 {
                     var entity = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.DeptId != 0).Single(e => e.PersonnelId == id);
@@ -112,9 +114,13 @@ namespace HR_CMS.Services
                         
                     };
                 }
-            }
-        }*/
-       
+        }
+        
+        public WorkInfoDetail GetDirectorByPersonnelId(int id)
+        {
+
+        }
+*/
         public IEnumerable<WorkInfoListItem> GetWorkInfo()
         {
             using (var ctx = new ApplicationDbContext())
