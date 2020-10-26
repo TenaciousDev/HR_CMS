@@ -13,6 +13,7 @@ namespace HR_CMS.WebAPI.Controllers
 {
     public class PositionController : ApiController
     {
+        [Authorize]
         private PositionService CreatePositionService()
         {
             var createService = new PositionService();
