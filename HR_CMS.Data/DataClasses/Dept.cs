@@ -10,7 +10,7 @@ namespace HR_CMS.Data
     public class Dept
     {
         [Key]
-        public int DeptID { get; set; }
+        public int DeptId { get; set; }
 
         [Required]
         public string DeptName { get; set; }
