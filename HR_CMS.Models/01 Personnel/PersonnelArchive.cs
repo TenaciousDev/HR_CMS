@@ -17,7 +17,6 @@ namespace HR_CMS.Models
         public DateTimeOffset DOB { get; set; }
 
         public DateTimeOffset DOH { get; set; }
-
         public DateTimeOffset? DOT { get; set; }
     }
 }
