@@ -16,10 +16,13 @@ namespace HR_CMS.Services
             {
                 PersonnelId = model.PersonnelId,
                 PositionId = model.PositionId,
+                ContactId = model.ContactId,
                 Wage = model.Wage,
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
                 PositionHeld = model.Position,
+                Contact = model.Contact,
+
                 
                
             };
@@ -37,6 +40,7 @@ namespace HR_CMS.Services
                 var entity = ctx.WorkInfoDbSet.Single(e => e.PersonnelId == model.PersonnelId);
                 entity.WorkInfoId = model.WorkInfoId;
                 entity.PositionId = model.PositionId;
+                entity.ContactId = model.ContactId;
                 entity.Wage = model.Wage;
                 entity.WorkEmail = model.WorkEmail;
                 entity.LastReview = model.LastReview;
@@ -54,6 +58,7 @@ namespace HR_CMS.Services
                 {
                     WorkInfoId = entity.WorkInfoId,
                     PositionId = entity.PositionId,
+                    ContactId = entity.ContactId,
                     Wage = entity.Wage,
                     HasBenefits = entity.HasBenefits,
                     StartOfBenefits = entity.StartOfBenefits,
@@ -129,6 +134,7 @@ namespace HR_CMS.Services
                 {
                     WorkInfoId = e.WorkInfoId,
                     PositionId = e.PositionId,
+                    ContactId = e.ContactId,
                     Wage = e.Wage,
                     StartOfBenefits = e.StartOfBenefits,
                     WorkEmail = e.WorkEmail,
@@ -148,6 +154,7 @@ namespace HR_CMS.Services
                 {
                     WorkInfoId = e.WorkInfoId,
                     PositionId = e.PositionId,
+                    ContactId = e.ContactId,
                     Wage = e.Wage,
                     StartOfBenefits = e.StartOfBenefits,
                     WorkEmail = e.WorkEmail,
@@ -167,6 +174,7 @@ namespace HR_CMS.Services
                     {
                         WorkInfoId = e.WorkInfoId,
                         PositionId = e.PositionId,
+                        ContactId = e.ContactId,
                         Wage = e.Wage,
                         StartOfBenefits = e.StartOfBenefits,
                         WorkEmail = e.WorkEmail,

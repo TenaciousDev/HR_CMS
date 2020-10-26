@@ -11,6 +11,7 @@ namespace HR_CMS.Models
         public int PersonnelId { get; set; }
         public int WorkInfoId { get; set; }
         public int PositionId { get; set; }
+        public int ContactId { get; set; }
         public decimal Wage { get; set; }
         public bool HasBenefits { get; set; }
         public DateTimeOffset StartOfBenefits { get; set; }
