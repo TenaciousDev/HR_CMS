@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HR_CMS.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,5 +28,14 @@ namespace HR_CMS.Models
         public double SickDaysUsedLifetime { get; set; }
         public double SickDaysAccruedForPeriod { get; set; }
         public double SickDaysUsedForPeriod { get; set; }
+        //added to bottom for easier review
+        public virtual Position Position { get; set; }
+        public string DeptName { get; set; }
+        public string PositionTitle { get; set; }
+        public bool IsSupervisor { get; set; }
+
+        public bool IsDirector { get; set; }
+
+        public bool IsExecutive { get; set; }
     }
 }
