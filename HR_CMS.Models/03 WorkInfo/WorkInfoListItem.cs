@@ -14,5 +14,9 @@ namespace HR_CMS.Models
         public decimal Wage { get; set; }
         public DateTimeOffset StartOfBenefits { get; set; }
         public string WorkEmail { get; set; }
+        // added to bottom for easier review
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string PositionTitle { get; set; }
     }
 }
