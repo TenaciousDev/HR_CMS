@@ -73,5 +73,25 @@ namespace HR_CMS.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<ContactListItem> GetContactByDeptId(int deptId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .WorkInfoDbSet
+                    .Where(e => e.PositionHeld.DeptId == deptId)
+                    .Select(
+                        e =>
+                            new ContactListItem
+                            {
+                                PhoneNumber = e.Contact.PhoneNumber,
+                                Email = e.Contact.Email,
+                                Address = e.Contact.Address
+                            }
+                    );
+                return query.ToArray();
+            }
+        }
     }
 }
