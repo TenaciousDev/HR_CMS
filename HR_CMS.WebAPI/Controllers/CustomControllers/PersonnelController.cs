@@ -24,6 +24,18 @@ namespace HR_CMS.WebAPI.Controllers
             var personnelById = personnelService.GetPersonnelById(id);
             return Ok(personnelById);
         }
+        public IHttpActionResult GetByActive()
+        {
+            PersonnelService personnelService = CreatePersonnelService();
+            var personnelById = personnelService.GetActivePersonnel();
+            return Ok(personnelById);
+        }
+        public IHttpActionResult GetByInactive()
+        {
+            PersonnelService personnelService = CreatePersonnelService();
+            var personnelById = personnelService.GetInactivePersonnel();
+            return Ok(personnelById);
+        }
         public IHttpActionResult Post(PersonnelCreate personnelById)
         {
             if (!ModelState.IsValid)
@@ -39,6 +51,15 @@ namespace HR_CMS.WebAPI.Controllers
                 return BadRequest(ModelState);
             var service = CreatePersonnelService();
             if (!service.UpdatePersonnel(personnelById))
+                return InternalServerError();
+            return Ok();
+        }
+        public IHttpActionResult Put(PersonnelArchive personnelById)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreatePersonnelService();
+            if (!service.ArchivePersonnel(personnelById))
                 return InternalServerError();
             return Ok();
         }
