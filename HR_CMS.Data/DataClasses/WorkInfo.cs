@@ -16,6 +16,9 @@ namespace HR_CMS.Data
         public int PersonnelId { get; set; }
         [ForeignKey(nameof(PersonnelId))]
         public virtual Personnel Personnel { get; set; }
+        public int ContactId { get; set; }
+        [ForeignKey(nameof(ContactId))]
+        public virtual Contact Contact { get; set; }
 
         public int PositionId { get; set; }
         [ForeignKey(nameof(PositionId))]
