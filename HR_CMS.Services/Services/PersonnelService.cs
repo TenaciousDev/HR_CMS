@@ -11,6 +11,7 @@ namespace HR_CMS.Services
 {
     public class PersonnelService
     {
+        public PersonnelService(){}
         //Create Personnel
         public bool CreatePersonnel(PersonnelCreate model)
         {
