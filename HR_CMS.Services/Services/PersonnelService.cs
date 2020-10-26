@@ -31,8 +31,6 @@ namespace HR_CMS.Services
                 ctx.PersonnelDbSet.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-
-
         }
 
         //Get All Personnel
@@ -58,10 +56,8 @@ namespace HR_CMS.Services
                            IsActive = e.IsActive
                        }
                     );
-
                 return query.ToArray();
             }
-
         }
 
         //Get Personnel by ID
@@ -80,7 +76,6 @@ namespace HR_CMS.Services
             }
         }
 
-
         //Edit Personnel
         public bool UpdatePersonnel(PersonnelDetail model)
         {
@@ -97,7 +92,6 @@ namespace HR_CMS.Services
                 entity.SSN = model.SSN;
                 entity.DOB = model.DOB;
                 entity.DOH = model.DOH;
-                entity.DOT = model.DOT;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -118,7 +112,6 @@ namespace HR_CMS.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
 
         //Get All Active Personnel
         public IEnumerable<PersonnelListItem> GetActivePersonnel()
@@ -144,10 +137,8 @@ namespace HR_CMS.Services
                            IsActive = e.IsActive
                        }
                     );
-
                 return query.ToArray();
             }
-
         }
 
         //Get All Inactive Personnel
@@ -174,11 +165,9 @@ namespace HR_CMS.Services
                            IsActive = e.IsActive
                        }
                     );
-
                 return query.ToArray();
             }
 
         }
-
     }
 }
