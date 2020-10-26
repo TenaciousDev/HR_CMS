@@ -82,5 +82,25 @@ namespace HR_CMS.WebAPI.Controllers
             var info = infoService.GetPersonnelByDeptId(id);
             return Ok(info);
         }
+        public IHttpActionResult GetDirectors()
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllDirectors();
+            return Ok(info);
+        }
+        public IHttpActionResult GetSupervisors()
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllSupervisors();
+            return Ok(info);
+        }
+
+        public IHttpActionResult GetSupervisorsByDept(int id)
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllSupervisorsByDept(id);
+            return Ok(info);
+        }
+
     }
 }
