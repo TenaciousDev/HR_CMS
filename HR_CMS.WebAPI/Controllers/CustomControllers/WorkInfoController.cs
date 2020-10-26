@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace HR_CMS.WebAPI.Controllers
 {
+    [Authorize]
     public class WorkInfoController : ApiController
     {
         private WorkInfoService CreateWorkInfoService()
