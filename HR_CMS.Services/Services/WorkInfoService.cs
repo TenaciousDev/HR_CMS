@@ -200,7 +200,73 @@ namespace HR_CMS.Services
 
                 return query.ToArray();
             }
+        }
+        public IEnumerable<WorkInfoListItem> GetAllDirectors()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsDirector == true)
+                    .Select(e => new WorkInfoListItem
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
 
+        }
+        public IEnumerable<WorkInfoListItem> GetAllSupervisors()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true)
+                    .Select(e => new WorkInfoListItem
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<WorkInfoListItem> GetAllSupervisorsByDept(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true && e.PositionHeld.DeptId == id)
+                    .Select(e => new WorkInfoListItem
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
         }
     }
 }

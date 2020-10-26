@@ -19,5 +19,6 @@ namespace HR_CMS.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PositionTitle { get; set; }
+        public string DeptName { get; set; }
     }
 }
