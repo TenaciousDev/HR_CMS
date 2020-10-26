@@ -80,8 +80,6 @@ namespace HR_CMS.Services
                     ctx
                         .ContactDbSet
                         .Single(e => e.PersonnelId == model.PersonnelId);
-
-                entity.ContactId = model.ContactId;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Email = model.Email;
                 entity.Address = model.Address;
