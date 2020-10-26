@@ -99,7 +99,7 @@ namespace HR_CMS.Services
         }
 
         //Archive Personnel
-        public bool ArchivePersonnel(PersonnelDetail model)
+        public bool ArchivePersonnel(PersonnelArchive model)
         {
             using (var ctx = new ApplicationDbContext())
             {
