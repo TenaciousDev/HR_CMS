@@ -72,7 +72,51 @@ namespace HR_CMS.Services
             }
         }
 
-        public bool UpdateNote(ContactDetail model)
+        public IEnumerable<ContactListItem> GetContactForAllActive()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .ContactDbSet
+                    .Where(e => e.Personnel.IsActive == true)
+                    .Select(
+                    e =>
+                    new ContactListItem
+                    {
+                        PersonnelId = e.PersonnelId,
+                        ContactId = e.ContactId,
+                        PhoneNumber = e.PhoneNumber,
+                        Email = e.Email,
+                        Address = e.Address
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<ContactListItem> GetContactForAllInactive()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .ContactDbSet
+                    .Where(e => e.Personnel.IsActive == false)
+                    .Select(
+                    e =>
+                    new ContactListItem
+                    {
+                        PersonnelId = e.PersonnelId,
+                        ContactId = e.ContactId,
+                        PhoneNumber = e.PhoneNumber,
+                        Email = e.Email,
+                        Address = e.Address
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        public bool UpdateContact(ContactDetail model)
         {
             using (var ctx = new ApplicationDbContext())
             {
