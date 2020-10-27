@@ -32,8 +32,8 @@ namespace HR_CMS.WebAPI.Controllers
             var personnelById = personnelService.GetPersonnelById(id);
             return Ok(personnelById);
         }
-        [AcceptVerbs("GET")]
-        public IHttpActionResult GetByActive()
+        //[AcceptVerbs("GET")]
+        /*public IHttpActionResult GetByActive()
         {
             PersonnelService personnelService = CreatePersonnelService();
             var personnelById = personnelService.GetActivePersonnel();
@@ -45,7 +45,7 @@ namespace HR_CMS.WebAPI.Controllers
             PersonnelService personnelService = CreatePersonnelService();
             var personnelById = personnelService.GetInactivePersonnel();
             return Ok(personnelById);
-        }
+        }*/
         public IHttpActionResult Post(PersonnelCreate personnelById)
         {
             if (!ModelState.IsValid)
