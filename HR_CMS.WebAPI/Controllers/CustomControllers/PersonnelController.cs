@@ -54,7 +54,7 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
-        public IHttpActionResult Put(PersonnelArchive personnelById)
+        /*public IHttpActionResult Put(PersonnelArchive personnelById)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -63,7 +63,7 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
-        private PersonnelService CreatePersonnelService()
+        */private PersonnelService CreatePersonnelService()
         {
             var personnelService = new PersonnelService();
             return personnelService;
