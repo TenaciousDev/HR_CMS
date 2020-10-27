@@ -45,7 +45,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(contact);
         }
 
-        public IHttpActionResult GetAllActive()
+        /*public IHttpActionResult GetAllActive()
         {
             ContactService contactService = CreateContactService();
             var contact = contactService.GetContactForAllActive();
@@ -57,7 +57,7 @@ namespace HR_CMS.WebAPI.Controllers
             ContactService contactService = CreateContactService();
             var contact = contactService.GetContactForAllInactive();
             return Ok(contact);
-        }
+        }*/
 
         public IHttpActionResult Put(ContactDetail contact)
         {

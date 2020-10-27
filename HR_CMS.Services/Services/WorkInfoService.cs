@@ -126,6 +126,46 @@ namespace HR_CMS.Services
 
         }
 */
+        public IEnumerable<WorkInfoListItem> GetPersonnelByDeptId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.DeptId == id)
+                    .Select(e => new WorkInfoListItem
+                    {
+                        FirstName= e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle
+                    }
+                    );
+
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<WorkInfoListItem> GetAllSupervisorsByDept(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true && e.PositionHeld.DeptId == id)
+                    .Select(e => new WorkInfoListItem
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
+        // START OF GET ALL
         public IEnumerable<WorkInfoListItem> GetWorkInfo()
         {
             using (var ctx = new ApplicationDbContext())
@@ -139,14 +179,20 @@ namespace HR_CMS.Services
                     Wage = e.Wage,
                     StartOfBenefits = e.StartOfBenefits,
                     WorkEmail = e.WorkEmail,
+                    //LINE BREAK - REMOVE PROPERTIES BELOW IF IMPLEMENTING STRETCH GOALS
+                    FirstName = e.Personnel.FirstName,
+                    LastName = e.Personnel.LastName,
+                    PositionTitle = e.PositionHeld.PositionTitle,
+                    DeptName = e.PositionHeld.Department.DeptName,
                 }
                     );
 
                 return query.ToArray();
             }
-
         }
-        public IEnumerable<WorkInfoListItem> GetWorkInfoByActive()
+/*        STRETCH GOALS FOR GET ALL METHODS - REQUIRES ROUTING TO IMPLEMENT AS SEPARATE ENDPOINTS - PLACEHOLDER CODE
+ *        
+ *        public IEnumerable<WorkInfoListItem> GetWorkInfoByActive()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -164,7 +210,6 @@ namespace HR_CMS.Services
 
                 return query.ToArray();
             }
-
         }
         public IEnumerable<WorkInfoListItem> GetWorkInfoByInactive()
         {
@@ -179,23 +224,6 @@ namespace HR_CMS.Services
                         Wage = e.Wage,
                         StartOfBenefits = e.StartOfBenefits,
                         WorkEmail = e.WorkEmail,
-                    }
-                    );
-
-                return query.ToArray();
-            }
-
-        }
-        public IEnumerable<WorkInfoListItem> GetPersonnelByDeptId(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.DeptId == id)
-                    .Select(e => new WorkInfoListItem
-                    {
-                        FirstName= e.Personnel.FirstName,
-                        LastName = e.Personnel.LastName,
-                        PositionTitle = e.PositionHeld.PositionTitle
                     }
                     );
 
@@ -223,7 +251,6 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-
         }
         public IEnumerable<WorkInfoListItem> GetAllSupervisors()
         {
@@ -246,28 +273,7 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-        }
-        public IEnumerable<WorkInfoListItem> GetAllSupervisorsByDept(int id)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true && e.PositionHeld.DeptId == id)
-                    .Select(e => new WorkInfoListItem
-                    {
-                        WorkInfoId = e.WorkInfoId,
-                        PositionId = e.PositionId,
-                        ContactId = e.ContactId,
-                        PersonnelId = e.PersonnelId,
-                        FirstName = e.Personnel.FirstName,
-                        LastName = e.Personnel.LastName,
-                        PositionTitle = e.PositionHeld.PositionTitle,
-                        DeptName = e.PositionHeld.Department.DeptName,
-                        Wage = e.Wage,
-                        WorkEmail = e.WorkEmail,
-                    }
-                    );
-                return query.ToArray();
-            }
-        }
+        }*/
+
     }
 }
