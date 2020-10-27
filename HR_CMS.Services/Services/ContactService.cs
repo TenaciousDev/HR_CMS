@@ -72,7 +72,7 @@ namespace HR_CMS.Services
             }
         }
 
-        public IEnumerable<ContactListItem> GetContactForAllActive()
+        /*public IEnumerable<ContactListItem> GetContactForAllActive()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -114,7 +114,7 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-        }
+        }*/
 
         public bool UpdateContact(ContactDetail model)
         {
