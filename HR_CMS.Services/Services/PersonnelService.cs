@@ -11,7 +11,6 @@ namespace HR_CMS.Services
 {
     public class PersonnelService
     {
-        public PersonnelService(){}
         //Create Personnel
         public bool CreatePersonnel(PersonnelCreate model)
         {
@@ -114,8 +113,12 @@ namespace HR_CMS.Services
             }
         }
 
+        
+        
+        //STRETCH GOALS --GET BY ACTIVE / INACTIVE
+        
         //Get All Active Personnel
-        public IEnumerable<PersonnelListItem> GetActivePersonnel()
+        /*public IEnumerable<PersonnelListItem> GetActivePersonnel()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -140,10 +143,10 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-        }
+        }*/
 
         //Get All Inactive Personnel
-        public IEnumerable<PersonnelListItem> GetInactivePersonnel()
+        /*public IEnumerable<PersonnelListItem> GetInactivePersonnel()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -169,6 +172,6 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
 
-        }
+        }*/
     }
 }
