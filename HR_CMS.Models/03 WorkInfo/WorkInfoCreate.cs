@@ -11,7 +11,7 @@ namespace HR_CMS.Models
     public class WorkInfoCreate
     {
         [Required]
-        public int PersonnelId { get; set; }
+        public int? PersonnelId { get; set; }
         [Required]
         public int PositionId { get; set; }
         public virtual Position Position { get; set; }
