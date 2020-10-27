@@ -64,6 +64,7 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+
         //public IHttpActionResult PutArchive(PersonnelArchive personnelById)
         //{
           //  if (!ModelState.IsValid)
