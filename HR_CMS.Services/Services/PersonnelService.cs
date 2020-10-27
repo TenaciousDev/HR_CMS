@@ -62,7 +62,7 @@ namespace HR_CMS.Services
         }
 
         //Get Personnel by ID
-        public PersonnelListItem GetPersonnelById(int id)
+        public PersonnelDetail GetPersonnelById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -70,7 +70,7 @@ namespace HR_CMS.Services
                     ctx
                     .PersonnelDbSet
                     .Single(e => e.PersonnelId == id);
-                return new PersonnelListItem
+                return new PersonnelDetail
                 {
                     PersonnelId = entity.PersonnelId,
                 };
