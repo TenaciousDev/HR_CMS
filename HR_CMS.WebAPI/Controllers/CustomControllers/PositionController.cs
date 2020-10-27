@@ -11,6 +11,7 @@ using System.Web.Http.Results;
 
 namespace HR_CMS.WebAPI.Controllers
 {
+    [Authorize]
     public class PositionController : ApiController
     {
         [Authorize]

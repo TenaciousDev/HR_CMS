@@ -49,7 +49,7 @@ namespace HR_CMS.Services
             }
         }
 
-        public WorkInfoDetail GetWorkInfo(int id)
+        public WorkInfoDetail GetWorkInfoById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -132,6 +132,7 @@ namespace HR_CMS.Services
             {
                 var query = ctx.WorkInfoDbSet.Select(e => new WorkInfoListItem
                 {
+                    PersonnelId = e.PersonnelId,
                     WorkInfoId = e.WorkInfoId,
                     PositionId = e.PositionId,
                     ContactId = e.ContactId,

@@ -41,22 +41,22 @@ namespace HR_CMS.WebAPI.Controllers
 
             return Ok();
         }
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(int personnelIdA)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetWorkInfo(id);
+            var info = infoService.GetWorkInfoById(personnelIdA);
             return Ok(info);
         }
-        public IHttpActionResult GetDept(int id)
+        public IHttpActionResult GetDept(int personnelIdB)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetDeptByPersonnelId(id);
+            var info = infoService.GetDeptByPersonnelId(personnelIdB);
             return Ok(info);
         }
-        public IHttpActionResult GetPosition(int id)
+        public IHttpActionResult GetPosition(int personnelIdC)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetPositionByPersonnelId(id);
+            var info = infoService.GetPositionByPersonnelId(personnelIdC);
             return Ok(info);
         }
         public IHttpActionResult Get()
@@ -77,10 +77,10 @@ namespace HR_CMS.WebAPI.Controllers
             var info = infoService.GetWorkInfoByInactive();
             return Ok(info);
         }
-        public IHttpActionResult GetPersonnelByDept(int id)
+        public IHttpActionResult GetPersonnelByDept(int deptIdA)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetPersonnelByDeptId(id);
+            var info = infoService.GetPersonnelByDeptId(deptIdA);
             return Ok(info);
         }
         public IHttpActionResult GetDirectors()
@@ -96,10 +96,10 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(info);
         }
 
-        public IHttpActionResult GetSupervisorsByDept(int id)
+        public IHttpActionResult GetAllSupervisorsByDept(int deptIdB)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetAllSupervisorsByDept(id);
+            var info = infoService.GetAllSupervisorsByDept(deptIdB);
             return Ok(info);
         }
 
