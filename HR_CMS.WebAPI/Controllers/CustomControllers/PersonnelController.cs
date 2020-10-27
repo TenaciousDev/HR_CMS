@@ -46,6 +46,7 @@ namespace HR_CMS.WebAPI.Controllers
             //var personnelById = personnelService.GetInactivePersonnel();
             //return Ok(personnelById);
         //}
+
         public IHttpActionResult Post(PersonnelCreate personnelById)
         {
             if (!ModelState.IsValid)

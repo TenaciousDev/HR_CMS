@@ -59,13 +59,30 @@ namespace HR_CMS.WebAPI.Controllers
             var info = infoService.GetPositionByPersonnelId(personnelIdC);
             return Ok(info);
         }
+        public IHttpActionResult GetPersonnelByDept(int deptIdA)
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetPersonnelByDeptId(deptIdA);
+            return Ok(info);
+        }
+        public IHttpActionResult GetAllSupervisorsByDept(int deptIdB)
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllSupervisorsByDept(deptIdB);
+            return Ok(info);
+        }
+
+        //START OF GET ALL
+
         public IHttpActionResult Get()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfo();
             return Ok(info);
         }
-        public IHttpActionResult GetByActive()
+        /* STRETCH GOALS - REQUIRES ROUTING TO IMPLEMENT AS SEPARATE ENDPOINTS - PLACEHOLDER CODE
+         * 
+         * public IHttpActionResult GetByActive()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByActive();
@@ -75,12 +92,6 @@ namespace HR_CMS.WebAPI.Controllers
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByInactive();
-            return Ok(info);
-        }
-        public IHttpActionResult GetPersonnelByDept(int deptIdA)
-        {
-            WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetPersonnelByDeptId(deptIdA);
             return Ok(info);
         }
         public IHttpActionResult GetDirectors()
@@ -94,14 +105,8 @@ namespace HR_CMS.WebAPI.Controllers
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetAllSupervisors();
             return Ok(info);
-        }
+        }*/
 
-        public IHttpActionResult GetAllSupervisorsByDept(int deptIdB)
-        {
-            WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetAllSupervisorsByDept(deptIdB);
-            return Ok(info);
-        }
 
     }
 }
