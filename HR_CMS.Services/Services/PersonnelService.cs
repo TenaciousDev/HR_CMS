@@ -53,7 +53,7 @@ namespace HR_CMS.Services
                            DOB = e.DOB,
                            DOH = e.DOH,
                            DOT = e.DOT,
-                           IsActive = e.IsActive
+                           //IsActive = e.IsActive
                        }
                     );
                 return query.ToArray();
@@ -92,7 +92,7 @@ namespace HR_CMS.Services
                 entity.SSN = model.SSN;
                 entity.DOB = model.DOB;
                 entity.DOH = model.DOH;
-
+                entity.DOT = model.DOT;
                 return ctx.SaveChanges() == 1;
             }
         }
