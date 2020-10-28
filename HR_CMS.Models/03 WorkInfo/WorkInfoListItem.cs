@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HR_CMS.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,15 @@ namespace HR_CMS.Models
         public int PositionId { get; set; }
         public int ContactId { get; set; }
         public decimal Wage { get; set; }
-        public DateTimeOffset StartOfBenefits { get; set; }
+        public DateTimeOffset StartOfBenefits
+        {
+            get
+            {
+                Personnel pers = new Personnel();
+                DateTimeOffset result = pers.DOH.AddDays(90);
+                return result;
+            }
+        }
         public string WorkEmail { get; set; }
         // added to bottom for easier review
         public string FirstName { get; set; }
