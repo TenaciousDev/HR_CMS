@@ -52,9 +52,7 @@ namespace HR_CMS.Services
                            SSN = e.SSN,
                            DOB = e.DOB,
                            DOH = e.DOH,
-                           DOT = e.DOT,
-                          
-                           
+                           DOT = e.DOT,                        
                        }
                     );
                 return query.ToArray();
@@ -101,7 +99,6 @@ namespace HR_CMS.Services
                 entity.DOB = model.DOB;
                 entity.DOH = model.DOH;
                 entity.DOT = model.DOT;
-
                 return ctx.SaveChanges() == 1;
             }
         }
