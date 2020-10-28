@@ -52,8 +52,7 @@ namespace HR_CMS.Services
                            SSN = e.SSN,
                            DOB = e.DOB,
                            DOH = e.DOH,
-                           DOT = e.DOT,
-                          // IsActive = e.IsActive
+                           DOT = e.DOT,                        
                        }
                     );
                 return query.ToArray();
@@ -72,6 +71,13 @@ namespace HR_CMS.Services
                 return new PersonnelDetail
                 {
                     PersonnelId = entity.PersonnelId,
+                    FirstName = entity.FirstName,
+                    MiddleName = entity.MiddleName,
+                    LastName = entity.LastName,
+                    SSN = entity.SSN,
+                    DOB = entity.DOB,
+                    DOH = entity.DOH,
+                    DOT = entity.DOT
                 };
             }
         }
@@ -92,7 +98,7 @@ namespace HR_CMS.Services
                 entity.SSN = model.SSN;
                 entity.DOB = model.DOB;
                 entity.DOH = model.DOH;
-
+                entity.DOT = model.DOT;
                 return ctx.SaveChanges() == 1;
             }
         }
