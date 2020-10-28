@@ -12,7 +12,7 @@ namespace HR_CMS.Models
         [Required]
         public string FirstName { get; set; }
 
-        [Required]
+        
         public string MiddleName { get; set; }
 
         [Required]
@@ -28,6 +28,18 @@ namespace HR_CMS.Models
         public DateTimeOffset DOH { get; set; }
 
         public DateTimeOffset? DOT { get; set; }
-        public bool IsActive { get; set; }
+        //public bool IsActive { get; set; }
+
+        public bool IsActive
+        {
+            get
+            {
+                if (DOT == null)
+                {
+                    return true;
+                }
+                return false;
+            }
+        }
     }
 }
