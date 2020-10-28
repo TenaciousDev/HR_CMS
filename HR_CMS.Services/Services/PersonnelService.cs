@@ -53,7 +53,7 @@ namespace HR_CMS.Services
                            DOB = e.DOB,
                            DOH = e.DOH,
                            DOT = e.DOT,
-                           IsActive = e.IsActive
+                          // IsActive = e.IsActive
                        }
                     );
                 return query.ToArray();

@@ -38,9 +38,7 @@ namespace HR_CMS.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx.WorkInfoDbSet.Single(e => e.PersonnelId == model.PersonnelId);
-                entity.WorkInfoId = model.WorkInfoId;
                 entity.PositionId = model.PositionId;
-                entity.ContactId = model.ContactId;
                 entity.Wage = model.Wage;
                 entity.WorkEmail = model.WorkEmail;
                 entity.LastReview = model.LastReview;
@@ -177,7 +175,7 @@ namespace HR_CMS.Services
                     PositionId = e.PositionId,
                     ContactId = e.ContactId,
                     Wage = e.Wage,
-                    StartOfBenefits = e.StartOfBenefits,
+                    //StartOfBenefits = e.StartOfBenefits,
                     WorkEmail = e.WorkEmail,
                     //LINE BREAK - REMOVE PROPERTIES BELOW IF IMPLEMENTING STRETCH GOALS
                     FirstName = e.Personnel.FirstName,
