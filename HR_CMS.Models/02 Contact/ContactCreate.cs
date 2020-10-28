@@ -13,7 +13,7 @@ namespace HR_CMS.Models
         public int PersonnelId { get; set; }
 
         [Required]
-        public int PhoneNumber { get; set; }
+        public double PhoneNumber { get; set; }
 
         [Required]
         public string Email { get; set; }
