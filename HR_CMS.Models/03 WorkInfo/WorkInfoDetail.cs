@@ -29,15 +29,12 @@ namespace HR_CMS.Models
         public double SickDaysUsedLifetime { get; set; }
         public double SickDaysAccruedForPeriod { get; set; }
         public double SickDaysUsedForPeriod { get; set; }
+
+
         //added to bottom for easier review
-        public virtual Position Position { get; set; }
-        public virtual Contact Contact { get; set; }
-        public string DeptName { get; set; }
-        public string PositionTitle { get; set; }
-        public bool IsSupervisor { get; set; }
 
-        public bool IsDirector { get; set; }
+        /*public virtual Position Position { get; set; }
+        public virtual Contact Contact { get; set; }*/
 
-        public bool IsExecutive { get; set; }
     }
 }
