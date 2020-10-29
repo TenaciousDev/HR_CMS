@@ -55,130 +55,123 @@ namespace HR_CMS.Models
         }
         public double VacationDaysAccruedLifetime
         {
-            //currently returns the amount of days passed since date of benefit start. Currently runs on requiring user input to determine the vacationVariable as it would be unfeasable for the programmers to determine how much vacation time the company gives its employees and it required a placeholder.
             get
             {
 
-                int vacationVariable = Int32.Parse(Console.ReadLine());
+                int vacationVariable = 30;
                 double totalDaysSinceBenefitStart = (DateTimeOffset.Now - StartOfBenefits).TotalDays;
                 double accrued = totalDaysSinceBenefitStart / vacationVariable;
                 return accrued;
             }
         }
-        public double VacationDaysUsedLifetime
+        /*public double VacationDaysUsedLifetime
         {
             get
             {
-                int newVacationSubmission = Int32.Parse(Console.ReadLine());
-                double total = VacationDaysUsedLifetime + newVacationSubmission;
+                TimeSpan newVacationSubmission = TimeSpan.FromDays(5);
+                double total = VacationDaysUsedLifetime + Convert.ToDouble(newVacationSubmission);
                 return total;
             }
-        }
+        }*/
         public double VacationDaysAccruedForPeriod
         {
             get
             {
-                //console user input variables
-                DateTimeOffset startOfPeriod = Convert.ToDateTime(Console.ReadLine());
-                int vacationVariable = Int32.Parse(Console.ReadLine());
-                //actual method
+                int vacationVariable = 30;
+                DateTime startOfPeriod = new DateTime(2020, 1, 1);
                 double totalDaysSincePeriodStart = (DateTimeOffset.Now - startOfPeriod).TotalDays;
                 double accrued = totalDaysSincePeriodStart / vacationVariable;
                 return accrued;
             }
         }
-        public double VacationDaysUsedForPeriod
+       /* public double VacationDaysUsedForPeriod
         {
             get
             {
-                int newVacationSubmission = Int32.Parse(Console.ReadLine());
+                int newVacationSubmission = 5;
                 double total = VacationDaysUsedForPeriod + newVacationSubmission;
                 return total;
             }
-        }
+        }*/
         public double PersonalDaysAccruedLifetime
         {
             get
             {
 
-                int personalVariable = Int32.Parse(Console.ReadLine());
+                int personalVariable = 30;
                 double totalDaysSinceBenefitStart = (DateTimeOffset.Now - StartOfBenefits).TotalDays;
                 double accrued = totalDaysSinceBenefitStart / personalVariable;
                 return accrued;
             }
         }
-        public double PersonalDaysUsedLifetime
+        /*public double PersonalDaysUsedLifetime
         {
             get
             {
-                int newPersonalSubmission = Int32.Parse(Console.ReadLine());
-                double total = VacationDaysUsedLifetime + newPersonalSubmission;
+                int newPersonalSubmission = 1;
+                double total = PersonalDaysUsedLifetime + newPersonalSubmission;
                 return total;
             }
-        }
+        }*/
         public double PersonalDaysAccruedForPeriod
         {
             get
             {
-                //console user input variables
-                DateTimeOffset startOfPeriod = Convert.ToDateTime(Console.ReadLine());
-                int personalVariable = Int32.Parse(Console.ReadLine());
-                //actual method
+                int personalVariable = 30;
+                DateTimeOffset startOfPeriod = new DateTime(2020, 1, 1);
                 double totalDaysSincePeriodStart = (DateTimeOffset.Now - startOfPeriod).TotalDays;
                 double accrued = totalDaysSincePeriodStart / personalVariable;
                 return accrued;
             }
         }
-        public double PersonalDaysUsedForPeriod
+        /*public double PersonalDaysUsedForPeriod
         {
             get
             {
-                int newPersonalSubmission = Int32.Parse(Console.ReadLine());
-                double total = VacationDaysUsedForPeriod + newPersonalSubmission;
+                int newPersonalSubmission = 5;
+                double total = PersonalDaysUsedForPeriod + newPersonalSubmission;
                 return total;
             }
-        }
+        }*/
         public double SickDaysAccruedLifetime
         {
             get
             {
 
-                int diseaseVariable = Int32.Parse(Console.ReadLine());
+                int diseaseVariable = 30;
                 double totalDaysSinceBenefitStart = (DateTimeOffset.Now - StartOfBenefits).TotalDays;
                 double accrued = totalDaysSinceBenefitStart / diseaseVariable;
                 return accrued;
             }
         }
-        public double SickDaysUsedLifetime
+        /*public double SickDaysUsedLifetime
         {
             get
             {
-                int newDiseaseSubmission = Int32.Parse(Console.ReadLine());
-                double total = VacationDaysUsedLifetime + newDiseaseSubmission;
+                int newDiseaseSubmission = 1;
+                double total = SickDaysUsedLifetime + newDiseaseSubmission;
                 return total;
             }
-        }
+        }*/
         public double SickDaysAccruedForPeriod
         {
             get
             {
-                //console user input variables
-                DateTimeOffset startOfPeriod = Convert.ToDateTime(Console.ReadLine());
-                int diseaseVariable = Int32.Parse(Console.ReadLine());
-                //actual method
+                int diseaseVariable = 30;
+                DateTimeOffset startOfPeriod = new DateTime(2020, 1, 1);
                 double totalDaysSincePeriodStart = (DateTimeOffset.Now - startOfPeriod).TotalDays;
                 double accrued = totalDaysSincePeriodStart / diseaseVariable;
                 return accrued;
             }
         }
-        public double SickDaysUsedForPeriod
+        /*public double SickDaysUsedForPeriod
         {
             get
             {
-                int newDiseaseSubmission = Int32.Parse(Console.ReadLine());
-                double total = VacationDaysUsedForPeriod + newDiseaseSubmission;
+                int newDiseaseSubmission = 5;
+                double total = SickDaysUsedForPeriod + newDiseaseSubmission;
                 return total;
             }
-        }
+        }*/
     }
 }

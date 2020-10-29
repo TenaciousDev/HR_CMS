@@ -19,27 +19,27 @@ namespace HR_CMS.Services
                 PositionId = model.PositionId,
                 ContactId = model.ContactId,
                 Wage = model.Wage,
-                HasBenefits = model.HasBenefits,
-                StartOfBenefits = model.StartOfBenefits,
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
-                NextReview = model.NextReview,
                 PositionHeld = model.Position,
                 Contact = model.Contact,
+                StartOfBenefits = model.StartOfBenefits,
+                HasBenefits = model.HasBenefits,
+                NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
-                VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
+                //VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
                 VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
-                VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
+                //VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
                 PersonalDaysAccruedLifetime = model.PersonalDaysAccruedLifetime,
-                PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
+                //PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
                 PersonalDaysAccruedForPeriod = model.PersonalDaysAccruedForPeriod,
-                PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
+                //PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
                 SickDaysAccruedLifetime = model.SickDaysAccruedLifetime,
-                SickDaysUsedLifetime = model.SickDaysUsedLifetime,
+                //SickDaysUsedLifetime = model.SickDaysUsedLifetime,
                 SickDaysAccruedForPeriod = model.SickDaysAccruedForPeriod,
-                SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
-                
-               
+                //SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
+
+
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -77,7 +77,7 @@ namespace HR_CMS.Services
                     HasBenefits = entity.HasBenefits,
                     StartOfBenefits = entity.StartOfBenefits,
                     WorkEmail = entity.WorkEmail,
-                   VacationDaysAccruedLifetime = entity.VacationDaysAccruedLifetime,
+                    VacationDaysAccruedLifetime = entity.VacationDaysAccruedLifetime,
                     VacationDaysUsedLifetime = entity.VacationDaysUsedLifetime,
                     VacationDaysAccruedForPeriod = entity.VacationDaysAccruedForPeriod,
                     VacationDaysUsedForPeriod = entity.VacationDaysUsedForPeriod,
