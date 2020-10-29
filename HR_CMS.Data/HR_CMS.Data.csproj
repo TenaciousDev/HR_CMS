@@ -116,6 +116,10 @@
     <Compile Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.designer.cs">
       <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010292104169_ChangedPhoneNumberFromDoubleToStringBecauseSeanWasRight.cs" />
+    <Compile Include="Migrations\202010292104169_ChangedPhoneNumberFromDoubleToStringBecauseSeanWasRight.designer.cs">
+      <DependentUpon>202010292104169_ChangedPhoneNumberFromDoubleToStringBecauseSeanWasRight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.resx">
       <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010292104169_ChangedPhoneNumberFromDoubleToStringBecauseSeanWasRight.resx">
+      <DependentUpon>202010292104169_ChangedPhoneNumberFromDoubleToStringBecauseSeanWasRight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\HR_CMS.Data.Migrations.InitialCreate.resources" />
   </ItemGroup>

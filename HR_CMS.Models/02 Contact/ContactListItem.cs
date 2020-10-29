@@ -15,7 +15,7 @@ namespace HR_CMS.Models
 
         public int ContactId { get; set; }
 
-        public double PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         public string Email { get; set; }
 
