@@ -112,6 +112,10 @@
     <Compile Include="Migrations\202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.designer.cs">
       <DependentUpon>202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs" />
+    <Compile Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.designer.cs">
+      <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.resx">
       <DependentUpon>202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.resx">
+      <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\HR_CMS.Data.Migrations.InitialCreate.resources" />
   </ItemGroup>

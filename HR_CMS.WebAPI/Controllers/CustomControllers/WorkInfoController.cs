@@ -41,7 +41,6 @@ namespace HR_CMS.WebAPI.Controllers
 
             return Ok();
         }
-        //[Route("api/WorkInfo/GetByPersonnelId/{personnelId}")]
         public IHttpActionResult GetByPersonnelId([FromUri]int workInfoId,[FromBody]int personnelId)
         {
             WorkInfoService infoService = CreateWorkInfoService();
