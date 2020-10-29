@@ -4,6 +4,7 @@ using HR_CMS.Models._03_WorkInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace HR_CMS.Services
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
                 //VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
                 VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
-                //VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
+                VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
                 PersonalDaysAccruedLifetime = model.PersonalDaysAccruedLifetime,
                 //PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
                 PersonalDaysAccruedForPeriod = model.PersonalDaysAccruedForPeriod,
@@ -57,6 +58,22 @@ namespace HR_CMS.Services
                 entity.Wage = model.Wage;
                 entity.WorkEmail = model.WorkEmail;
                 entity.LastReview = model.LastReview;
+                entity.HasBenefits = model.HasBenefits;
+                entity.StartOfBenefits = model.StartOfBenefits;
+
+                entity.VacationDaysUsedLifetime += model.VacationDaysUsedLifetime;
+                entity.VacationDaysUsedForPeriod += model.VacationDaysUsedForPeriod;
+                entity.PersonalDaysUsedLifetime += model.PersonalDaysUsedLifetime;
+                entity.PersonalDaysUsedForPeriod += model.PersonalDaysUsedForPeriod;
+                entity.SickDaysUsedLifetime += model.SickDaysUsedLifetime;
+                entity.SickDaysUsedForPeriod += model.SickDaysUsedForPeriod;
+                entity.VacationDaysAccruedLifetime += model.VacationDaysAccruedLifetime;
+                entity.VacationDaysAccruedForPeriod += model.VacationDaysAccruedForPeriod;
+                entity.PersonalDaysAccruedLifetime += model.PersonalDaysAccruedLifetime;
+                entity.PersonalDaysAccruedForPeriod += model.PersonalDaysAccruedForPeriod;
+                entity.SickDaysAccruedLifetime += model.SickDaysAccruedLifetime;
+                entity.SickDaysAccruedForPeriod += model.SickDaysAccruedForPeriod;
+
 
                 return ctx.SaveChanges() == 1;
             }

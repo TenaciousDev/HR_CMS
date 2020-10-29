@@ -52,14 +52,14 @@ namespace HR_CMS.Services
             }
         }
 
-        public ContactDetail GetContactById(int id)
+        public ContactDetail GetContactByPersonnelId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .ContactDbSet
-                        .Single(e => e.ContactId == id);
+                        .Single(e => e.PersonnelId == id);
                 return
                     new ContactDetail
                     {
