@@ -9,7 +9,7 @@ namespace HR_CMS.Models
     public class WorkInfoEdit 
     {
         public int? PersonnelId { get; set; }
-        public int WorkInfoId { get; set; }
+        //public int WorkInfoId { get; set; }
         public int PositionId { get; set; }
         public decimal Wage { get; set; }
         public string WorkEmail { get; set; }

@@ -11,6 +11,7 @@ namespace HR_CMS.Models
         public int PositionId { get; set; }
         public string PositionTitle { get; set; }
         public int DeptId { get; set; } //If this causes issues, revisit whether this should be a DeptId or a Dept object
+        public string DeptName { get; set; }
         public bool IsSupervisor { get; set; }
         public bool IsDirector { get; set; }
         public bool IsExecutive { get; set; }

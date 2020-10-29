@@ -91,6 +91,8 @@ namespace HR_CMS.Services
                     PositionId = entity.PositionId,
                     ContactId = entity.ContactId,
                     Wage = entity.Wage,
+                    LastReview = entity.LastReview,
+                    NextReview = entity.NextReview,
                     HasBenefits = entity.HasBenefits,
                     StartOfBenefits = entity.StartOfBenefits,
                     WorkEmail = entity.WorkEmail,
@@ -164,9 +166,16 @@ namespace HR_CMS.Services
                 var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.DeptId == id)
                     .Select(e => new WorkInfoListItem
                     {
-                        FirstName= e.Personnel.FirstName,
+                        PersonnelId = e.PersonnelId,
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                        FirstName = e.Personnel.FirstName,
                         LastName = e.Personnel.LastName,
-                        PositionTitle = e.PositionHeld.PositionTitle
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName
                     }
                     );
 
