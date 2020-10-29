@@ -40,6 +40,7 @@ namespace HR_CMS.Services
                                 PositionId = e.PositionId,
                                 PositionTitle = e.PositionTitle,
                                 DeptId = e.DeptId,
+                                DeptName = e.Department.DeptName,
                                 IsSupervisor = e.IsSupervisor,
                                 IsDirector = e.IsDirector,
                                 IsExecutive = e.IsExecutive
@@ -62,6 +63,7 @@ namespace HR_CMS.Services
                                 PositionId = e.PositionId,
                                 PositionTitle = e.PositionTitle,
                                 DeptId = e.DeptId,
+                                DeptName = e.Department.DeptName,
                                 IsSupervisor = e.IsSupervisor,
                                 IsDirector = e.IsDirector,
                                 IsExecutive = e.IsExecutive

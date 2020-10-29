@@ -27,7 +27,7 @@ namespace HR_CMS.Models
         {
             get
             {
-                if ((DateTime.Now - StartOfBenefits).TotalSeconds >= 0)
+                if ((DateTimeOffset.Now - StartOfBenefits).TotalDays >= 90)
                 {
                     return true;
                 }
@@ -38,14 +38,12 @@ namespace HR_CMS.Models
         {
             get
             {
-                Personnel pers = new Personnel();
-                DateTimeOffset result = pers.DOH.AddDays(90);
-                return result;
+                Personnel p = new Personnel();
+                return p.DOH.AddDays(90);
             }
         }
         [Required]
         public string WorkEmail { get; set; }
-        [Required] 
         public DateTimeOffset LastReview { get; set; }
         public DateTimeOffset NextReview
         {
