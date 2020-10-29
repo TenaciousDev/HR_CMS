@@ -41,7 +41,7 @@ namespace HR_CMS.WebAPI.Controllers
         public IHttpActionResult Get(int id)
         {
             ContactService contactService = CreateContactService();
-            var contact = contactService.GetContactById(id);
+            var contact = contactService.GetContactByPersonnelId(id);
             return Ok(contact);
         }
         [Route("api/Contact/Active")]
