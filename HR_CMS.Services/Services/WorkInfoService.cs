@@ -1,5 +1,6 @@
 ﻿using HR_CMS.Data;
 using HR_CMS.Models;
+using HR_CMS.Models._03_WorkInfo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,25 @@ namespace HR_CMS.Services
                 PositionId = model.PositionId,
                 ContactId = model.ContactId,
                 Wage = model.Wage,
+                HasBenefits = model.HasBenefits,
+                StartOfBenefits = model.StartOfBenefits,
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
+                NextReview = model.NextReview,
                 PositionHeld = model.Position,
                 Contact = model.Contact,
-
+                VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
+                VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
+                VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
+                VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
+                PersonalDaysAccruedLifetime = model.PersonalDaysAccruedLifetime,
+                PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
+                PersonalDaysAccruedForPeriod = model.PersonalDaysAccruedForPeriod,
+                PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
+                SickDaysAccruedLifetime = model.SickDaysAccruedLifetime,
+                SickDaysUsedLifetime = model.SickDaysUsedLifetime,
+                SickDaysAccruedForPeriod = model.SickDaysAccruedForPeriod,
+                SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
                 
                
             };
@@ -54,6 +69,7 @@ namespace HR_CMS.Services
                 var entity = ctx.WorkInfoDbSet.Single(e => e.PersonnelId == id);
                 return new WorkInfoDetail
                 {
+                    PersonnelId = entity.PersonnelId,
                     WorkInfoId = entity.WorkInfoId,
                     PositionId = entity.PositionId,
                     ContactId = entity.ContactId,
@@ -61,7 +77,7 @@ namespace HR_CMS.Services
                     HasBenefits = entity.HasBenefits,
                     StartOfBenefits = entity.StartOfBenefits,
                     WorkEmail = entity.WorkEmail,
-                    VacationDaysAccruedLifetime = entity.VacationDaysAccruedLifetime,
+                   VacationDaysAccruedLifetime = entity.VacationDaysAccruedLifetime,
                     VacationDaysUsedLifetime = entity.VacationDaysUsedLifetime,
                     VacationDaysAccruedForPeriod = entity.VacationDaysAccruedForPeriod,
                     VacationDaysUsedForPeriod = entity.VacationDaysUsedForPeriod,
@@ -76,24 +92,24 @@ namespace HR_CMS.Services
                 };
             }
         }
-        public WorkInfoDetail GetDeptByPersonnelId(int id)
+        public WorkInfoDeptName GetDeptByPersonnelId(int id)
                 {
                     using (var ctx = new ApplicationDbContext())
                     {
                         var entity = ctx.WorkInfoDbSet.Single(e => e.PersonnelId == id );
-                return new WorkInfoDetail
+                return new WorkInfoDeptName
                 {
                     DeptName = entity.PositionHeld.Department.DeptName
                 };
                     }
                 }
-        public WorkInfoDetail GetPositionByPersonnelId(int id)
+        public WorkInfoPositionName GetPositionByPersonnelId(int id)
         {
             {
                 using (var ctx = new ApplicationDbContext())
                 {
                     var entity = ctx.WorkInfoDbSet.Single(e => e.PersonnelId == id);
-                    return new WorkInfoDetail
+                    return new WorkInfoPositionName
                     {
                         PositionTitle = entity.PositionHeld.PositionTitle,
                         IsSupervisor = entity.PositionHeld.IsSupervisor,
