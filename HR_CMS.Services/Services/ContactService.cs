@@ -72,13 +72,13 @@ namespace HR_CMS.Services
             }
         }
 
-        /*public IEnumerable<ContactListItem> GetContactForAllActive()
+        public IEnumerable<ContactListItem> GetContactForAllActive()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx
                     .ContactDbSet
-                    .Where(e => e.Personnel.IsActive == true)
+                    .Where(e => e.Personnel.DOT == null)
                     .Select(
                     e =>
                     new ContactListItem
@@ -100,7 +100,7 @@ namespace HR_CMS.Services
             {
                 var query = ctx
                     .ContactDbSet
-                    .Where(e => e.Personnel.IsActive == false)
+                    .Where(e => e.Personnel.DOT != null)
                     .Select(
                     e =>
                     new ContactListItem
@@ -114,7 +114,7 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-        }*/
+        }
 
         public bool UpdateContact(ContactDetail model)
         {

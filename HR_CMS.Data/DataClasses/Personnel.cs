@@ -23,17 +23,5 @@ namespace HR_CMS.Data
         [Required]
         public DateTimeOffset DOH { get; set; } //Date Of Hire
         public DateTimeOffset? DOT { get; set; } //Date Of Termination
-        public bool IsActive
-        {
-            get
-            {
-                if (DOT == null)
-                {
-                    return true;
-                }
-                return false;
-            }
-        }
-
     }
 }

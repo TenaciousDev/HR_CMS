@@ -44,20 +44,20 @@ namespace HR_CMS.WebAPI.Controllers
             var contact = contactService.GetContactById(id);
             return Ok(contact);
         }
-
-        /*public IHttpActionResult GetAllActive()
+        [Route("api/Contact/Active")]
+        public IHttpActionResult GetAllActive()
         {
             ContactService contactService = CreateContactService();
             var contact = contactService.GetContactForAllActive();
             return Ok(contact);
         }
-
+        [Route("api/Contact/Inactive")]
         public IHttpActionResult GetAllInactive()
         {
             ContactService contactService = CreateContactService();
             var contact = contactService.GetContactForAllInactive();
             return Ok(contact);
-        }*/
+        }
 
         public IHttpActionResult Put(ContactDetail contact)
         {

@@ -47,7 +47,7 @@ namespace HR_CMS.Services
             }
         }
 
-        public WorkInfoDetail GetWorkInfoById(int id)
+        public WorkInfoDetail GetWorkInfoByPersonnelId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {

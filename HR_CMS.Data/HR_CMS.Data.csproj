@@ -100,6 +100,22 @@
     <Compile Include="Migrations\202010272000439_First.Designer.cs">
       <DependentUpon>202010272000439_First.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010281756037_ChangedIsActiveNowHasGenericGetSet.cs" />
+    <Compile Include="Migrations\202010281756037_ChangedIsActiveNowHasGenericGetSet.designer.cs">
+      <DependentUpon>202010281756037_ChangedIsActiveNowHasGenericGetSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281816266_SecondTestToChangeIsActiveLogic.cs" />
+    <Compile Include="Migrations\202010281816266_SecondTestToChangeIsActiveLogic.designer.cs">
+      <DependentUpon>202010281816266_SecondTestToChangeIsActiveLogic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.cs" />
+    <Compile Include="Migrations\202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.designer.cs">
+      <DependentUpon>202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs" />
+    <Compile Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.designer.cs">
+      <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +136,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010272000439_First.resx">
       <DependentUpon>202010272000439_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281756037_ChangedIsActiveNowHasGenericGetSet.resx">
+      <DependentUpon>202010281756037_ChangedIsActiveNowHasGenericGetSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281816266_SecondTestToChangeIsActiveLogic.resx">
+      <DependentUpon>202010281816266_SecondTestToChangeIsActiveLogic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.resx">
+      <DependentUpon>202010281832529_GotRidOfPeskyBooleanIsActiveFromDataLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010291152497_MovedWorkInfoLogicFromDataLayerToModels.resx">
+      <DependentUpon>202010291152497_MovedWorkInfoLogicFromDataLayerToModels.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\HR_CMS.Data.Migrations.InitialCreate.resources" />
   </ItemGroup>
