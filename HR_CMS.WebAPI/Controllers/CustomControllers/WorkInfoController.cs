@@ -41,10 +41,10 @@ namespace HR_CMS.WebAPI.Controllers
 
             return Ok();
         }
-        public IHttpActionResult GetByPersonnelId([FromUri]int workInfoId,[FromBody]int personnelId)
+        public IHttpActionResult GetByPersonnelId(int personnelIdA)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetWorkInfoByPersonnelId(personnelId);
+            var info = infoService.GetWorkInfoByPersonnelId(personnelIdA);
             return Ok(info);
         }
         public IHttpActionResult GetDept(int personnelIdB)
