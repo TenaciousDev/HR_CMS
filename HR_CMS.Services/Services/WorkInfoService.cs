@@ -24,7 +24,7 @@ namespace HR_CMS.Services
                 LastReview = model.LastReview,
                 PositionHeld = model.Position,
                 Contact = model.Contact,
-                StartOfBenefits = model.StartOfBenefits,
+                StartOfBenefits = model.Personnel.DOH.AddDays(90),
                 HasBenefits = model.HasBenefits,
                 NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
