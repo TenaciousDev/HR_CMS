@@ -24,7 +24,7 @@ namespace HR_CMS.Services
                 LastReview = model.LastReview,
                 PositionHeld = model.Position,
                 Contact = model.Contact,
-                StartOfBenefits = model.StartOfBenefits,
+                StartOfBenefits = model.Personnel.DOH.AddDays(90),
                 HasBenefits = model.HasBenefits,
                 NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
@@ -58,6 +58,7 @@ namespace HR_CMS.Services
                 entity.Wage = model.Wage;
                 entity.WorkEmail = model.WorkEmail;
                 entity.LastReview = model.LastReview;
+                entity.NextReview = model.NextReview;
                 entity.HasBenefits = model.HasBenefits;
                 entity.StartOfBenefits = model.StartOfBenefits;
 
@@ -230,15 +231,15 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
         }
-/*        STRETCH GOALS FOR GET ALL METHODS - REQUIRES ROUTING TO IMPLEMENT AS SEPARATE ENDPOINTS - PLACEHOLDER CODE
- *        
- *        public IEnumerable<WorkInfoListItem> GetWorkInfoByActive()
+
+         
+         public IEnumerable<GetWorkInfoByActive> GetWorkInfoByActive()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.WorkInfoDbSet.Where(e => e.Personnel.IsActive == true)
-                    .Select(e => new WorkInfoListItem
-                {
+                var query = ctx.WorkInfoDbSet.Where(e => e.Personnel.DOT == null)
+                    .Select(e => new GetWorkInfoByActive
+                    {
                     WorkInfoId = e.WorkInfoId,
                     PositionId = e.PositionId,
                     ContactId = e.ContactId,
@@ -251,12 +252,12 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<WorkInfoListItem> GetWorkInfoByInactive()
+        public IEnumerable<GetWorkInfoByActive> GetWorkInfoByInactive()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query = ctx.WorkInfoDbSet.Where(e => e.Personnel.IsActive == false)
-                    .Select(e => new WorkInfoListItem
+                var query = ctx.WorkInfoDbSet.Where(e => e.Personnel.DOT != null)
+                    .Select(e => new GetWorkInfoByActive
                     {
                         WorkInfoId = e.WorkInfoId,
                         PositionId = e.PositionId,
@@ -270,12 +271,12 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<WorkInfoListItem> GetAllDirectors()
+        public IEnumerable<GetAllLeadership> GetAllDirectors()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsDirector == true)
-                    .Select(e => new WorkInfoListItem
+                    .Select(e => new GetAllLeadership
                     {
                         WorkInfoId = e.WorkInfoId,
                         PositionId = e.PositionId,
@@ -292,12 +293,12 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
         }
-        public IEnumerable<WorkInfoListItem> GetAllSupervisors()
+        public IEnumerable<GetAllLeadership> GetAllSupervisors()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true)
-                    .Select(e => new WorkInfoListItem
+                    .Select(e => new GetAllLeadership
                     {
                         WorkInfoId = e.WorkInfoId,
                         PositionId = e.PositionId,
@@ -313,7 +314,7 @@ namespace HR_CMS.Services
                     );
                 return query.ToArray();
             }
-        }*/
+        }
 
     }
 }
