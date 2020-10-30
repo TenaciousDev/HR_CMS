@@ -15,6 +15,7 @@ namespace HR_CMS.Models
     {
         [Required]
         public int? PersonnelId { get; set; }
+        public virtual Personnel personnel { get; set;}
         [Required]
         public int PositionId { get; set; }
         public virtual Position Position { get; set; }
@@ -34,14 +35,8 @@ namespace HR_CMS.Models
                 return false;
             }
         }
-        public DateTimeOffset StartOfBenefits
-        {
-            get
-            {
-                Personnel p = new Personnel();
-                return p.DOH.AddDays(90);
-            }
-        }
+        //[Required]
+        public DateTimeOffset StartOfBenefits { get; set; }
         [Required]
         public string WorkEmail { get; set; }
         public DateTimeOffset LastReview { get; set; }
@@ -49,11 +44,14 @@ namespace HR_CMS.Models
         {
             get
             {
-                if (LastReview.Year <= DateTime.Now.Year)
+                if (LastReview.Date.Equals(default))
                 {
-                    return DateTimeOffset.Now.AddDays(90);
+                    return DateTime.Now.AddDays(30);
                 }
-                return LastReview.AddDays(90);
+                else
+                {
+                    return LastReview.Date.AddDays(90);
+                }
             }
         }
         public double VacationDaysAccruedLifetime { get; set; }

@@ -14,6 +14,20 @@ namespace HR_CMS.Models
         public decimal Wage { get; set; }
         public string WorkEmail { get; set; }
         public DateTimeOffset LastReview { get; set; }
+        public DateTimeOffset NextReview
+        { 
+            get
+            {
+                if (LastReview.Date.Equals(default))
+                {
+                    return DateTime.Now.AddDays(30);
+                }
+                else
+                {
+                    return LastReview.Date.AddDays(90);
+                }
+            }
+        }
         public bool HasBenefits { get; set; }
         public DateTimeOffset StartOfBenefits { get; set; }
         public double VacationDaysUsedLifetime { get; set; }
