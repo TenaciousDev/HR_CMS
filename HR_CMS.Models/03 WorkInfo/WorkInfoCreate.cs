@@ -43,11 +43,14 @@ namespace HR_CMS.Models
         {
             get
             {
-                if (LastReview.Year <= DateTime.Now.Year)
+                if (LastReview.Date.Equals(default))
                 {
-                    return DateTimeOffset.Now.AddDays(90);
+                    return DateTime.Now.AddDays(30);
                 }
-                return LastReview.AddDays(90);
+                else
+                {
+                    return LastReview.Date.AddDays(90);
+                }
             }
         }
         public double VacationDaysAccruedLifetime { get; set; }
