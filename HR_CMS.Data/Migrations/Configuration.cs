@@ -19,7 +19,7 @@
         protected override void Seed(HR_CMS.Data.ApplicationDbContext context)
         {
             //REMOVE THIS TO ACCESS SEED DATA
-            
+            return;
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method

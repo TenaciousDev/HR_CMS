@@ -15,6 +15,7 @@ namespace HR_CMS.Models
     {
         [Required]
         public int? PersonnelId { get; set; }
+        public virtual Personnel Personnel { get; set; }
         [Required]
         public int PositionId { get; set; }
         public virtual Position Position { get; set; }
@@ -34,14 +35,7 @@ namespace HR_CMS.Models
                 return false;
             }
         }
-        public DateTimeOffset StartOfBenefits
-        {
-            get
-            {
-                Personnel p = new Personnel();
-                return p.DOH.AddDays(90);
-            }
-        }
+        public DateTimeOffset StartOfBenefits { get; set; }
         [Required]
         public string WorkEmail { get; set; }
         public DateTimeOffset LastReview { get; set; }
