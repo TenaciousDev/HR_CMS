@@ -19,7 +19,7 @@ namespace HR_CMS.Models
         public string LastName { get; set; }
 
         [Required]
-        public int SSN { get; set; }
+        public string SSN { get; set; }
 
         [Required]
         public DateTimeOffset DOB { get; set; }
