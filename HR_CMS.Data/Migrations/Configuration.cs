@@ -18,37 +18,40 @@
 
         protected override void Seed(HR_CMS.Data.ApplicationDbContext context)
         {
+            //REMOVE THIS TO ACCESS SEED DATA
+            return;
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             //Seed Depts
-/*            context.DeptDbSet.AddOrUpdate(x => x.DeptId,
+            context.DeptDbSet.AddOrUpdate(x => x.DeptId,
+                //Human Resources
                 new Dept()
                 {
                     DeptId = 1,
                     DeptName = "Human Resources",
                 },
-
+                //Sales
                 new Dept()
                 {
                     DeptId = 2,
                     DeptName = "Sales",
                 },
-
-                new Dept()
+                //Marketing
+                new Dept() 
                 {
                     DeptId = 3,
                     DeptName = "Marketing",
                 },
-
-                new Dept()
+                // R&D
+                new Dept() 
                 {
                     DeptId = 4,
                     DeptName = "Research & Development",
                 },
-
-                new Dept()
+                // Compliance
+                new Dept() 
                 {
                     DeptId = 5,
                     DeptName = "Compliance",
@@ -56,7 +59,7 @@
             );
             //Seed Positions
             context.PositionDbSet.AddOrUpdate(x => x.PositionId,
-
+                //HR Executive Director
                 new Position()
                 {
                     PositionId = 1,
@@ -66,6 +69,7 @@
                     IsDirector = true,
                     IsExecutive = true
                 },
+                //HR Director
                 new Position()
                 {
                     PositionId = 2,
@@ -75,6 +79,7 @@
                     IsDirector = true,
                     IsExecutive = false
                 },
+                //HR Supervisor
                 new Position()
                 {
                     PositionId = 3,
@@ -84,6 +89,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //HR Associate
                 new Position()
                 {
                     PositionId = 4,
@@ -93,6 +99,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Sales Executive Director
                 new Position()
                 {
                     PositionId = 5,
@@ -102,6 +109,7 @@
                     IsDirector = true,
                     IsExecutive = true
                 },
+                //Sales Director
                 new Position()
                 {
                     PositionId = 6,
@@ -111,6 +119,7 @@
                     IsDirector = true,
                     IsExecutive = false
                 },
+                //Sales Supervisor
                 new Position()
                 {
                     PositionId = 7,
@@ -120,6 +129,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Sales Associate
                 new Position()
                 {
                     PositionId = 8,
@@ -129,6 +139,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Sales Associate, Temp.
                 new Position()
                 {
                     PositionId = 9,
@@ -138,6 +149,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Marketing Executive Director
                 new Position()
                 {
                     PositionId = 10,
@@ -147,6 +159,7 @@
                     IsDirector = true,
                     IsExecutive = true
                 },
+                //Marketing Director
                 new Position()
                 {
                     PositionId = 11,
@@ -156,6 +169,7 @@
                     IsDirector = true,
                     IsExecutive = false
                 },
+                //Marketing Supervisor
                 new Position()
                 {
                     PositionId = 12,
@@ -165,6 +179,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Marketing Associate
                 new Position()
                 {
                     PositionId = 13,
@@ -174,6 +189,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //R&D Executive Director
                 new Position()
                 {
                     PositionId = 14,
@@ -183,6 +199,7 @@
                     IsDirector = true,
                     IsExecutive = true
                 },
+                //R&D Director
                 new Position()
                 {
                     PositionId = 15,
@@ -192,6 +209,7 @@
                     IsDirector = true,
                     IsExecutive = false
                 },
+                //R&D Supervisor
                 new Position()
                 {
                     PositionId = 16,
@@ -201,6 +219,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //R&D Associate
                 new Position()
                 {
                     PositionId = 17,
@@ -210,6 +229,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Compliance Executive Director
                 new Position()
                 {
                     PositionId = 18,
@@ -219,6 +239,7 @@
                     IsDirector = true,
                     IsExecutive = true
                 },
+                //Compliance Director
                 new Position()
                 {
                     PositionId = 19,
@@ -228,6 +249,7 @@
                     IsDirector = true,
                     IsExecutive = false
                 },
+                //Compliance Supervisor
                 new Position()
                 {
                     PositionId = 20,
@@ -237,6 +259,7 @@
                     IsDirector = false,
                     IsExecutive = false
                 },
+                //Compliance Associate
                 new Position()
                 {
                     PositionId = 21,
@@ -249,6 +272,7 @@
             );
             //Seed Personnel
             context.PersonnelDbSet.AddOrUpdate(x => x.PersonnelId,
+                //1: Tammy Winslow, Marketing Director
                 new Personnel()
                 {
                     PersonnelId = 1,
@@ -260,6 +284,7 @@
                     DOH = new DateTime(2005, 07, 13),
                     DOT = null
                 },
+                //2: Cassidy Pfannerstill, Sales Director
                 new Personnel()
                 {
                     PersonnelId = 2,
@@ -271,6 +296,7 @@
                     DOH = new DateTime(2011, 02, 19),
                     DOT = null
                 },
+                //3: Jeff Shields, R&D Supervisor
                 new Personnel()
                 {
                     PersonnelId = 3,
@@ -282,6 +308,7 @@
                     DOH = new DateTime(2017, 11, 06),
                     DOT = null
                 },
+                //4: Percy Champlin, R&D Executive Director
                 new Personnel()
                 {
                     PersonnelId = 4,
@@ -292,6 +319,7 @@
                     DOH = new DateTime(1999, 03, 07),
                     DOT = new DateTime(2019, 05, 27)
                 },
+                //5: Kailyn Douglas, R&D Director
                 new Personnel()
                 {
                     PersonnelId = 5,
@@ -303,6 +331,7 @@
                     DOH = new DateTime(2020, 10, 08),
                     DOT = null
                 },
+                //6: Ellis Reinger, Sales Associate
                 new Personnel()
                 {
                     PersonnelId = 6,
@@ -314,6 +343,7 @@
                     DOH = new DateTime(2019, 06, 18),
                     DOT = new DateTime(2019, 07, 19)
                 },
+                //7: Su Lin Park, HR Executive Director
                 new Personnel()
                 {
                     PersonnelId = 7,
@@ -324,6 +354,7 @@
                     DOH = new DateTime(1992, 08, 01),
                     DOT = null
                 },
+                //8: Mackenzie Lairmore, Compliance Associate
                 new Personnel()
                 {
                     PersonnelId = 8,
@@ -335,6 +366,7 @@
                     DOH = new DateTime(2009, 07, 11),
                     DOT = new DateTime(2019, 06, 02)
                 },
+                //9: Ralph Kirlin, Compliance Supervisor
                 new Personnel()
                 {
                     PersonnelId = 9,
@@ -346,6 +378,7 @@
                     DOH = new DateTime(2014, 04, 15),
                     DOT = null
                 },
+                //10: Kat Mwanza, Sales Associate (Temp)
                 new Personnel()
                 {
                     PersonnelId = 10,
@@ -357,7 +390,9 @@
                     DOT = null
                 }
             );
+            //Seed Contact
             context.ContactDbSet.AddOrUpdate(x => x.ContactId,
+                //1: Tammy Winslow, Marketing Director
                 new Contact()
                 {
                     ContactId = 1,
@@ -366,6 +401,7 @@
                     Email = "workerbee411@email.net",
                     Address = "1911 Colton Ave"
                 },
+                //2: Cassidy Pfannerstill, Sales Director
                 new Contact()
                 {
                     ContactId = 2,
@@ -374,6 +410,7 @@
                     Email = "workerbee311@email.net",
                     Address = "111 Golden Ave"
                 },
+                //3: Jeff Shields, R&D Supervisor
                 new Contact()
                 {
                     ContactId = 3,
@@ -382,6 +419,7 @@
                     Email = "workerbee211@email.net",
                     Address = "211 Golden Ave"
                 },
+                //4: Percy Champlin, R&D Executive Director
                 new Contact()
                 {
                     ContactId = 4,
@@ -390,6 +428,7 @@
                     Email = "workerbee11@email.net",
                     Address = "202 Forensic Drive"
                 },
+                //5: Kailyn Douglas, R&D Director
                 new Contact()
                 {
                     ContactId = 5,
@@ -398,6 +437,7 @@
                     Email = "workerbee511@email.net",
                     Address = "2503 Colton Ave"
                 },
+                //6: Ellis Reinger, Sales Associate
                 new Contact()
                 {
                     ContactId = 6,
@@ -406,6 +446,7 @@
                     Email = "workerbee611@email.net",
                     Address = "3713 Broadridge Way"
                 },
+                //7: Su Lin Park, HR Executive Director
                 new Contact()
                 {
                     ContactId = 7,
@@ -414,6 +455,7 @@
                     Email = "workerbee31@email.net",
                     Address = "25 Cottage Circle"
                 },
+                //8: Mackenzie Lairmore, Compliance Associate
                 new Contact()
                 {
                     ContactId = 8,
@@ -422,6 +464,7 @@
                     Email = "workerbee271@email.net",
                     Address = "37005 Carlton Cove Parkway"
                 },
+                //9: Ralph Kirlin, Compliance Supervisor
                 new Contact()
                 {
                     ContactId = 9,
@@ -430,6 +473,7 @@
                     Email = "workerbee411@email.net",
                     Address = "3498 Chicago Rd"
                 },
+                //10: Kat Mwanza, Sales Associate (Temp)
                 new Contact()
                 {
                     ContactId = 10,
@@ -439,17 +483,109 @@
                     Address = "205 Memphis Rd"
                 }
             );
+            //Seed WorkInfo
             context.WorkInfoDbSet.AddOrUpdate(x => x.WorkInfoId,
+                //1: Tammy Winslow, Marketing Director
                 new WorkInfo()
                 {
                     WorkInfoId = 1,
                     ContactId = 1,
                     PersonnelId = 1,
+                    PositionId = 11,
+                    Wage = 65000,
+                    WorkEmail = "tammy.winslow@company.com"
+                },
+                //2: Cassidy Pfannerstill, Sales Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 2,
+                    ContactId = 2,
+                    PersonnelId = 2,
+                    PositionId = 6,
+                    Wage = 65000,
+                    WorkEmail = "cassidy.pfannerstill@company.com"
+                },
+                //3: Jeff Shields, R&D Supervisor
+                new WorkInfo()
+                {
+                    WorkInfoId = 3,
+                    ContactId = 3,
+                    PersonnelId = 3,
+                    PositionId = 16,
+                    Wage = 65000,
+                    WorkEmail = "jeff.shields@company.com"
+                },
+                //4: Percy Champlin, R&D Executive Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 4,
+                    ContactId = 4,
+                    PersonnelId = 4,
+                    PositionId = 14,
+                    Wage = 65000,
+                    WorkEmail = "percy.champlin@company.com"
+                },
+                //5: Kailyn Douglas, R&D Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 5,
+                    ContactId = 5,
+                    PersonnelId = 5,
+                    PositionId = 15,
+                    Wage = 65000,
+                    WorkEmail = "kailyn.douglas@company.com"
+                },
+                //6: Ellis Reinger, Sales Associate
+                new WorkInfo()
+                {
+                    WorkInfoId = 6,
+                    ContactId = 6,
+                    PersonnelId = 6,
+                    PositionId = 8,
+                    Wage = 65000,
+                    WorkEmail = "ellis.reinger@company.com"
+                },
+                //7: Su Lin Park, HR Executive Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 7,
+                    ContactId = 7,
+                    PersonnelId = 7,
                     PositionId = 1,
                     Wage = 65000,
-                    WorkEmail = "firstname.lastname@company.com"
+                    WorkEmail = "sulin.park@company.com"
+                },
+                //8: Mackenzie Lairmore, Compliance Associate
+                new WorkInfo()
+                {
+                    WorkInfoId = 8,
+                    ContactId = 8,
+                    PersonnelId = 8,
+                    PositionId = 21,
+                    Wage = 65000,
+                    WorkEmail = "mackenzie.lairmore@company.com"
+                },
+                //9: Ralph Kirlin, Compliance Supervisor
+                new WorkInfo()
+                {
+                    WorkInfoId = 9,
+                    ContactId = 9,
+                    PersonnelId = 9,
+                    PositionId = 20,
+                    Wage = 65000,
+                    WorkEmail = "ralph.kirlin@company.com"
+                },
+                //10: Kat Mwanza, Sales Associate (Temp)
+                new WorkInfo()
+                {
+                    WorkInfoId = 10,
+                    ContactId = 10,
+                    PersonnelId = 10,
+                    PositionId = 9,
+                    Wage = 65000,
+                    WorkEmail = "kat.mwanza@company.com"
                 }
             );
-*/        }
+        }
     }
 }

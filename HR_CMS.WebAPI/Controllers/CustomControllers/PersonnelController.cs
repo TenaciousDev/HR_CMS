@@ -18,7 +18,6 @@ namespace HR_CMS.WebAPI.Controllers
             return personnelService;
         }
         [AcceptVerbs("GET")]
-        
         public IHttpActionResult Get()
         {
             PersonnelService personnelService = CreatePersonnelService();
@@ -32,20 +31,22 @@ namespace HR_CMS.WebAPI.Controllers
             var personnelById = personnelService.GetPersonnelById(id);
             return Ok(personnelById);
         }
-        //[AcceptVerbs("GET")]
-        //public IHttpActionResult GetByActive()
-        //{
-          //  PersonnelService personnelService = CreatePersonnelService();
-            //var personnelById = personnelService.GetActivePersonnel();
-            //return Ok(personnelById);
-        //}
-        //[AcceptVerbs("GET")]
-        //public IHttpActionResult GetByInactive()
-        //{
-          //  PersonnelService personnelService = CreatePersonnelService();
-            //var personnelById = personnelService.GetInactivePersonnel();
-            //return Ok(personnelById);
-        //}
+        [AcceptVerbs("GET")]
+        [Route("api/Personnel/Active")]
+        public IHttpActionResult GetByActive()
+        {
+          PersonnelService personnelService = CreatePersonnelService();
+        var personnelById = personnelService.GetActivePersonnel();
+        return Ok(personnelById);
+        }
+        [AcceptVerbs("GET")]
+        [Route("api/Personnel/Inactive")]
+        public IHttpActionResult GetByInactive()
+        {
+          PersonnelService personnelService = CreatePersonnelService();
+        var personnelById = personnelService.GetInactivePersonnel();
+        return Ok(personnelById);
+        }
 
         public IHttpActionResult Post(PersonnelCreate personnelById)
         {
@@ -65,16 +66,16 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+        [Route("api/Personnel/Archive")]
+        public IHttpActionResult PutArchive(PersonnelArchive personnelById)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var service = CreatePersonnelService();
+            if (!service.ArchivePersonnel(personnelById))
+                return InternalServerError();
+            return Ok();
+        }
 
-        //public IHttpActionResult PutArchive(PersonnelArchive personnelById)
-        //{
-          //  if (!ModelState.IsValid)
-            //    return BadRequest(ModelState);
-            //var service = CreatePersonnelService();
-            //if (!service.ArchivePersonnel(personnelById))
-              //  return InternalServerError();
-            //return Ok();
-        //}
-       
     }
 }

@@ -118,20 +118,15 @@ namespace HR_CMS.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        
-        
-        //STRETCH GOALS --GET BY ACTIVE / INACTIVE
-        
         //Get All Active Personnel
-        /*public IEnumerable<PersonnelListItem> GetActivePersonnel()
+        public IEnumerable<PersonnelListItem> GetActivePersonnel()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .PersonnelDbSet
-                    .Where(e => e.IsActive == true)
+                    .Where(e => e.DOT == null)
                     .Select(
                        e =>
                        new PersonnelListItem
@@ -143,23 +138,21 @@ namespace HR_CMS.Services
                            SSN = e.SSN,
                            DOB = e.DOB,
                            DOH = e.DOH,
-                           DOT = e.DOT,
-                           IsActive = e.IsActive
+                           DOT = e.DOT
                        }
                     );
                 return query.ToArray();
             }
-        }*/
-
+        }
         //Get All Inactive Personnel
-        /*public IEnumerable<PersonnelListItem> GetInactivePersonnel()
+        public IEnumerable<PersonnelListItem> GetInactivePersonnel()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .PersonnelDbSet
-                    .Where(e => e.IsActive == false)
+                    .Where(e => e.DOT != null)
                     .Select(
                        e =>
                        new PersonnelListItem
@@ -171,13 +164,12 @@ namespace HR_CMS.Services
                            SSN = e.SSN,
                            DOB = e.DOB,
                            DOH = e.DOH,
-                           DOT = e.DOT,
-                           IsActive = e.IsActive
+                           DOT = e.DOT
                        }
                     );
                 return query.ToArray();
             }
 
-        }*/
+        }
     }
 }
