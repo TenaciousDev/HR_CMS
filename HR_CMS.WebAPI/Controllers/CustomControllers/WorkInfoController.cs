@@ -74,38 +74,42 @@ namespace HR_CMS.WebAPI.Controllers
 
         //START OF GET ALL
 
+        [Route("api/WorkInfo/GetAll")]
         public IHttpActionResult Get()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfo();
             return Ok(info);
         }
-        /* STRETCH GOALS - REQUIRES ROUTING TO IMPLEMENT AS SEPARATE ENDPOINTS - PLACEHOLDER CODE
-         * 
-         * public IHttpActionResult GetByActive()
+
+        [Route("api/WorkInfo/GetByActive")]
+        public IHttpActionResult GetByActive()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByActive();
             return Ok(info);
         }
+        [Route("api/WorkInfo/GetByInactive")]
         public IHttpActionResult GetByInactive()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByInactive();
             return Ok(info);
         }
+        [Route("api/WorkInfo/GetAllDirectors")]
         public IHttpActionResult GetDirectors()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetAllDirectors();
             return Ok(info);
         }
+        [Route("api/WorkInfo/GetAllSupervisors")]
         public IHttpActionResult GetSupervisors()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetAllSupervisors();
             return Ok(info);
-        }*/
+        }
 
 
     }

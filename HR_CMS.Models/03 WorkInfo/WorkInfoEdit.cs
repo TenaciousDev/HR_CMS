@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HR_CMS.Models
 {
     public class WorkInfoEdit 
     {
+        [Required]
         public int? PersonnelId { get; set; }
         //public int WorkInfoId { get; set; }
+        [Required]
         public int PositionId { get; set; }
+        [Required]
         public decimal Wage { get; set; }
+        [Required]
         public string WorkEmail { get; set; }
+        [Required]
+        public bool HasBenefits { get; set; }
+        [Required]
+        public DateTimeOffset StartOfBenefits { get; set; }
+        [Required]
         public DateTimeOffset LastReview { get; set; }
         public DateTimeOffset NextReview
-        { 
+        {
             get
             {
                 if (LastReview.Date.Equals(default))
@@ -28,8 +39,7 @@ namespace HR_CMS.Models
                 }
             }
         }
-        public bool HasBenefits { get; set; }
-        public DateTimeOffset StartOfBenefits { get; set; }
+
         public double VacationDaysUsedLifetime { get; set; }
         public double VacationDaysUsedForPeriod { get; set; }
         public double PersonalDaysUsedLifetime { get; set; }

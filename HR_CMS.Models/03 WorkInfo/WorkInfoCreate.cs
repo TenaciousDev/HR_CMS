@@ -15,7 +15,7 @@ namespace HR_CMS.Models
     {
         [Required]
         public int? PersonnelId { get; set; }
-        public virtual Personnel personnel { get; set;}
+        public virtual Personnel Personnel { get; set; }
         [Required]
         public int PositionId { get; set; }
         public virtual Position Position { get; set; }
@@ -35,7 +35,6 @@ namespace HR_CMS.Models
                 return false;
             }
         }
-        //[Required]
         public DateTimeOffset StartOfBenefits { get; set; }
         [Required]
         public string WorkEmail { get; set; }
