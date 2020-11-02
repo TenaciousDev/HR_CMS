@@ -25,6 +25,9 @@
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
             //Seed Depts
+            var vDays = 1.5;
+            var pDays = .5;
+            var sDays = .5;
             context.DeptDbSet.AddOrUpdate(x => x.DeptId,
                 //Human Resources
                 new Dept()
@@ -328,7 +331,7 @@
                     MiddleName = "Celine",
                     SSN = "221-30-6362",
                     DOB = new DateTime(1998, 10, 31),
-                    DOH = new DateTime(2020, 10, 08),
+                    DOH = DateTime.Now.Subtract(TimeSpan.FromDays(67)),
                     DOT = null
                 },
                 //6: Ellis Reinger, Sales Associate
@@ -492,8 +495,23 @@
                     ContactId = 1,
                     PersonnelId = 1,
                     PositionId = 11,
-                    Wage = 65000,
-                    WorkEmail = "tammy.winslow@company.com"
+                    Wage = 75000,
+                    WorkEmail = "tammy.winslow@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(1).DOH.AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(75)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 30,
+                    PersonalDaysUsedLifetime = 5,
+                    SickDaysUsedLifetime = 7,
+                    VacationDaysUsedForPeriod = 4,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 1
                 },
                 //2: Cassidy Pfannerstill, Sales Director
                 new WorkInfo()
@@ -502,8 +520,24 @@
                     ContactId = 2,
                     PersonnelId = 2,
                     PositionId = 6,
-                    Wage = 65000,
-                    WorkEmail = "cassidy.pfannerstill@company.com"
+                    Wage = 89000,
+                    WorkEmail = "cassidy.pfannerstill@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(2).DOH.AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(33)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 55,
+                    PersonalDaysUsedLifetime = 11,
+                    SickDaysUsedLifetime = 1,
+                    VacationDaysUsedForPeriod = 15,
+                    PersonalDaysUsedForPeriod = 3,
+                    SickDaysUsedForPeriod = 0
+
                 },
                 //3: Jeff Shields, R&D Supervisor
                 new WorkInfo()
@@ -512,8 +546,23 @@
                     ContactId = 3,
                     PersonnelId = 3,
                     PositionId = 16,
-                    Wage = 65000,
-                    WorkEmail = "jeff.shields@company.com"
+                    Wage = 61000,
+                    WorkEmail = "jeff.shields@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(3).DOH.AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(8)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 6,
+                    PersonalDaysUsedLifetime = 0,
+                    SickDaysUsedLifetime = 2,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
                 },
                 //4: Percy Champlin, R&D Executive Director
                 new WorkInfo()
@@ -522,8 +571,24 @@
                     ContactId = 4,
                     PersonnelId = 4,
                     PositionId = 14,
-                    Wage = 65000,
-                    WorkEmail = "percy.champlin@company.com"
+                    Wage = 145000,
+                    WorkEmail = "percy.champlin@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(4).DOH.AddDays(90),
+                    LastReview = context.PersonnelDbSet.Find(4).DOT.Value.Subtract(TimeSpan.FromDays(37)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 320,
+                    PersonalDaysUsedLifetime = 54,
+                    SickDaysUsedLifetime = 21,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
+
                 },
                 //5: Kailyn Douglas, R&D Director
                 new WorkInfo()
@@ -532,8 +597,24 @@
                     ContactId = 5,
                     PersonnelId = 5,
                     PositionId = 15,
-                    Wage = 65000,
-                    WorkEmail = "kailyn.douglas@company.com"
+                    Wage = 94000,
+                    WorkEmail = "kailyn.douglas@company.com",
+                    HasBenefits = false,
+                    StartOfBenefits = context.PersonnelDbSet.Find(5).DOH.AddDays(90),
+                    LastReview = default,
+                    VacationDaysAccruedLifetime = default,
+                    PersonalDaysAccruedLifetime = default,
+                    SickDaysAccruedLifetime = default,
+                    VacationDaysAccruedForPeriod = default,
+                    PersonalDaysAccruedForPeriod = default,
+                    SickDaysAccruedForPeriod = default,
+                    VacationDaysUsedLifetime = default,
+                    PersonalDaysUsedLifetime = default,
+                    SickDaysUsedLifetime = default,
+                    VacationDaysUsedForPeriod = default,
+                    PersonalDaysUsedForPeriod = default,
+                    SickDaysUsedForPeriod = default
+
                 },
                 //6: Ellis Reinger, Sales Associate
                 new WorkInfo()
@@ -542,8 +623,23 @@
                     ContactId = 6,
                     PersonnelId = 6,
                     PositionId = 8,
-                    Wage = 65000,
-                    WorkEmail = "ellis.reinger@company.com"
+                    Wage = 32000,
+                    WorkEmail = "ellis.reinger@company.com",
+                    HasBenefits = default,
+                    StartOfBenefits = default,
+                    LastReview = context.PersonnelDbSet.Find(6).DOT.Value,
+                    VacationDaysAccruedLifetime = default,
+                    PersonalDaysAccruedLifetime = default,
+                    SickDaysAccruedLifetime = default,
+                    VacationDaysAccruedForPeriod = default,
+                    PersonalDaysAccruedForPeriod = default,
+                    SickDaysAccruedForPeriod = default,
+                    VacationDaysUsedLifetime = default,
+                    PersonalDaysUsedLifetime = default,
+                    SickDaysUsedLifetime = default,
+                    VacationDaysUsedForPeriod = default,
+                    PersonalDaysUsedForPeriod = default,
+                    SickDaysUsedForPeriod = default
                 },
                 //7: Su Lin Park, HR Executive Director
                 new WorkInfo()
@@ -552,8 +648,23 @@
                     ContactId = 7,
                     PersonnelId = 7,
                     PositionId = 1,
-                    Wage = 65000,
-                    WorkEmail = "sulin.park@company.com"
+                    Wage = 115000,
+                    WorkEmail = "sulin.park@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(7).DOH.AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(21)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 180,
+                    PersonalDaysUsedLifetime = 14,
+                    SickDaysUsedLifetime = 3,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 1,
+                    SickDaysUsedForPeriod = 0
                 },
                 //8: Mackenzie Lairmore, Compliance Associate
                 new WorkInfo()
@@ -562,8 +673,23 @@
                     ContactId = 8,
                     PersonnelId = 8,
                     PositionId = 21,
-                    Wage = 65000,
-                    WorkEmail = "mackenzie.lairmore@company.com"
+                    Wage = 35000,
+                    WorkEmail = "mackenzie.lairmore@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(8).DOH.AddDays(90),
+                    LastReview = context.PersonnelDbSet.Find(8).DOT.Value.Subtract(TimeSpan.FromDays(47)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 45,
+                    PersonalDaysUsedLifetime = 9,
+                    SickDaysUsedLifetime = 1,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
                 },
                 //9: Ralph Kirlin, Compliance Supervisor
                 new WorkInfo()
@@ -572,8 +698,24 @@
                     ContactId = 9,
                     PersonnelId = 9,
                     PositionId = 20,
-                    Wage = 65000,
-                    WorkEmail = "ralph.kirlin@company.com"
+                    Wage = 58000,
+                    WorkEmail = "ralph.kirlin@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = context.PersonnelDbSet.Find(9).DOH.AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(2)),
+                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
+                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
+                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 19,
+                    PersonalDaysUsedLifetime = 4,
+                    SickDaysUsedLifetime = 0,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 4,
+                    SickDaysUsedForPeriod = 0
+
                 },
                 //10: Kat Mwanza, Sales Associate (Temp)
                 new WorkInfo()
@@ -582,8 +724,23 @@
                     ContactId = 10,
                     PersonnelId = 10,
                     PositionId = 9,
-                    Wage = 65000,
-                    WorkEmail = "kat.mwanza@company.com"
+                    Wage = 34000,
+                    WorkEmail = "kat.mwanza@company.com",
+                    HasBenefits = false,
+                    StartOfBenefits = default,
+                    LastReview = default,
+                    VacationDaysAccruedLifetime = default,
+                    PersonalDaysAccruedLifetime = default,
+                    SickDaysAccruedLifetime = default,
+                    VacationDaysAccruedForPeriod = default,
+                    PersonalDaysAccruedForPeriod = default,
+                    SickDaysAccruedForPeriod = default,
+                    VacationDaysUsedLifetime = default,
+                    PersonalDaysUsedLifetime = default,
+                    SickDaysUsedLifetime = default,
+                    VacationDaysUsedForPeriod = default,
+                    PersonalDaysUsedForPeriod = default,
+                    SickDaysUsedForPeriod = default
                 }
             );
         }
