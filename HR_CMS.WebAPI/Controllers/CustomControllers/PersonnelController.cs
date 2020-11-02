@@ -27,7 +27,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(allPersonnel);
         }
 
-        [Route("Personnel/{PersonnelId}")]
+        [Route("{PersonnelId}")]
         [HttpGet]
         public IHttpActionResult GetById(int PersonnelId)
         {
