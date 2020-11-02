@@ -10,6 +10,7 @@ using HR_CMS.Services;
 namespace HR_CMS.WebAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Personnel")]
     public class PersonnelController : ApiController
     {
         private PersonnelService CreatePersonnelService()
@@ -17,37 +18,43 @@ namespace HR_CMS.WebAPI.Controllers
             var personnelService = new PersonnelService();
             return personnelService;
         }
-        [AcceptVerbs("GET")]
+        [Route("GetAll")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             PersonnelService personnelService = CreatePersonnelService();
             var allPersonnel = personnelService.GetPersonnel();
             return Ok(allPersonnel);
         }
-        [AcceptVerbs("GET")]
-        public IHttpActionResult GetById(int id)
+
+        [Route("Personnel/{PersonnelId}")]
+        [HttpGet]
+        public IHttpActionResult GetById(int PersonnelId)
         {
             PersonnelService personnelService = CreatePersonnelService();
-            var personnelById = personnelService.GetPersonnelById(id);
+            var personnelById = personnelService.GetPersonnelById(PersonnelId);
             return Ok(personnelById);
         }
-        [AcceptVerbs("GET")]
-        [Route("api/Personnel/Active")]
+        
+        [Route("AllActive")]
+        [HttpGet]
         public IHttpActionResult GetByActive()
         {
           PersonnelService personnelService = CreatePersonnelService();
         var personnelById = personnelService.GetActivePersonnel();
         return Ok(personnelById);
         }
-        [AcceptVerbs("GET")]
-        [Route("api/Personnel/Inactive")]
+        
+        [Route("AllInactive")]
+        [HttpGet]
         public IHttpActionResult GetByInactive()
         {
           PersonnelService personnelService = CreatePersonnelService();
         var personnelById = personnelService.GetInactivePersonnel();
         return Ok(personnelById);
         }
-
+        [Route("Create")]
+        [HttpPost]
         public IHttpActionResult Post(PersonnelCreate personnelById)
         {
             if (!ModelState.IsValid)
@@ -57,6 +64,8 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+        [Route("Edit")]
+        [HttpPut]
         public IHttpActionResult PutUpdate(PersonnelDetail personnelId)
         {
             if (!ModelState.IsValid)
@@ -66,7 +75,8 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
-        [Route("api/Personnel/Archive")]
+        [Route("Archive")]
+        [HttpPut]
         public IHttpActionResult PutArchive(PersonnelArchive personnelById)
         {
             if (!ModelState.IsValid)

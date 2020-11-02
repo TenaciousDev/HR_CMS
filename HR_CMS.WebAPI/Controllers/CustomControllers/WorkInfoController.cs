@@ -10,6 +10,7 @@ using System.Web.Http;
 namespace HR_CMS.WebAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/WorkInfo")]
     public class WorkInfoController : ApiController
     {
         private WorkInfoService CreateWorkInfoService()
@@ -18,6 +19,9 @@ namespace HR_CMS.WebAPI.Controllers
             var infoService = new WorkInfoService();
             return infoService;
         }
+
+        [Route("Create")]
+        [HttpPost]
         public IHttpActionResult Post(WorkInfoCreate workinfo)
         {
             if (!ModelState.IsValid)
@@ -27,8 +31,10 @@ namespace HR_CMS.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok();
-           
         }
+
+        [Route("Edit")]
+        [HttpPut]
         public IHttpActionResult Put (WorkInfoEdit workinfo)
         {
             if (!ModelState.IsValid)
@@ -41,40 +47,47 @@ namespace HR_CMS.WebAPI.Controllers
 
             return Ok();
         }
-        public IHttpActionResult GetByPersonnelId(int personnelIdA)
+
+        [Route("Info/{PersonnelId}")]
+        [HttpGet]
+        public IHttpActionResult GetByPersonnelId(int PersonnelId)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetWorkInfoByPersonnelId(personnelIdA);
+            var info = infoService.GetWorkInfoByPersonnelId(PersonnelId);
             return Ok(info);
         }
-        public IHttpActionResult GetDept(int personnelIdB)
+
+        [Route("Dept/{PersonnelId}")]
+        [HttpGet]
+        public IHttpActionResult GetDept(int PersonnelId)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetDeptByPersonnelId(personnelIdB);
+            var info = infoService.GetDeptByPersonnelId(PersonnelId);
             return Ok(info);
         }
-        public IHttpActionResult GetPosition(int personnelIdC)
+
+        [Route("Position/{PersonnelId}")]
+        [HttpGet]
+        public IHttpActionResult GetPosition(int PersonnelId)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetPositionByPersonnelId(personnelIdC);
+            var info = infoService.GetPositionByPersonnelId(PersonnelId);
             return Ok(info);
         }
-        public IHttpActionResult GetPersonnelByDept(int deptIdA)
+
+        [Route("Personnel/{DeptId}")]
+        [HttpGet]
+        public IHttpActionResult GetPersonnelByDept(int DeptId)
         {
             WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetPersonnelByDeptId(deptIdA);
-            return Ok(info);
-        }
-        public IHttpActionResult GetAllSupervisorsByDept(int deptIdB)
-        {
-            WorkInfoService infoService = CreateWorkInfoService();
-            var info = infoService.GetAllSupervisorsByDept(deptIdB);
+            var info = infoService.GetPersonnelByDeptId(DeptId);
             return Ok(info);
         }
 
         //START OF GET ALL
-
-        [Route("api/WorkInfo/GetAll")]
+        
+        [Route("GetAll")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             WorkInfoService infoService = CreateWorkInfoService();
@@ -82,32 +95,56 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(info);
         }
 
-        [Route("api/WorkInfo/GetByActive")]
+        [Route("AllSupervisors/{DeptId}")]
+        [HttpGet]
+        public IHttpActionResult GetAllSupervisorsByDept(int DeptId)
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllSupervisorsByDept(DeptId);
+            return Ok(info);
+        }
+
+        [Route("AllActive")]
+        [HttpGet]
         public IHttpActionResult GetByActive()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByActive();
             return Ok(info);
         }
-        [Route("api/WorkInfo/GetByInactive")]
+
+        [Route("AllInactive")]
+        [HttpGet]
         public IHttpActionResult GetByInactive()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetWorkInfoByInactive();
             return Ok(info);
         }
-        [Route("api/WorkInfo/GetAllDirectors")]
+
+        [Route("AllDirectors")]
+        [HttpGet]
         public IHttpActionResult GetDirectors()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetAllDirectors();
             return Ok(info);
         }
-        [Route("api/WorkInfo/GetAllSupervisors")]
+
+        [Route("AllSupervisors")]
+        [HttpGet]
         public IHttpActionResult GetSupervisors()
         {
             WorkInfoService infoService = CreateWorkInfoService();
             var info = infoService.GetAllSupervisors();
+            return Ok(info);
+        }
+        [Route("AllExecutives")]
+        [HttpGet]
+        public IHttpActionResult GetExecutives()
+        {
+            WorkInfoService infoService = CreateWorkInfoService();
+            var info = infoService.GetAllExecutives();
             return Ok(info);
         }
 
