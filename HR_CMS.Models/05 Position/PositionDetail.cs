@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HR_CMS.Data;
 
 namespace HR_CMS.Models
 {
@@ -15,9 +16,7 @@ namespace HR_CMS.Models
         public string PositionTitle { get; set; }
         [Required]
         public int DeptId { get; set; } //If this causes issues, revisit whether this should be a DeptId or a Dept object
-
-        //not required bc determined via another model
-        public string DeptName { get; set; }
+        public string DeptName  { get; set; }
         [Required]
         public bool IsSupervisor { get; set; }
         [Required]

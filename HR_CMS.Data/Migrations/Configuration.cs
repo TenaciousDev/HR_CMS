@@ -18,8 +18,8 @@
 
         protected override void Seed(HR_CMS.Data.ApplicationDbContext context)
         {
-            //REMOVE THIS TO ACCESS SEED DATA
-            
+            //return; // <-- comment for seed content / uncomment for no seed content
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
@@ -42,19 +42,19 @@
                     DeptName = "Sales",
                 },
                 //Marketing
-                new Dept() 
+                new Dept()
                 {
                     DeptId = 3,
                     DeptName = "Marketing",
                 },
                 // R&D
-                new Dept() 
+                new Dept()
                 {
                     DeptId = 4,
                     DeptName = "Research & Development",
                 },
                 // Compliance
-                new Dept() 
+                new Dept()
                 {
                     DeptId = 5,
                     DeptName = "Compliance",
@@ -67,6 +67,7 @@
                 {
                     PositionId = 1,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -77,6 +78,7 @@
                 {
                     PositionId = 2,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -87,6 +89,7 @@
                 {
                     PositionId = 3,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -97,6 +100,7 @@
                 {
                     PositionId = 4,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -107,6 +111,7 @@
                 {
                     PositionId = 5,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -117,6 +122,7 @@
                 {
                     PositionId = 6,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -127,6 +133,7 @@
                 {
                     PositionId = 7,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -137,6 +144,7 @@
                 {
                     PositionId = 8,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -147,6 +155,7 @@
                 {
                     PositionId = 9,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Temp. Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -157,6 +166,7 @@
                 {
                     PositionId = 10,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -167,6 +177,7 @@
                 {
                     PositionId = 11,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -177,6 +188,7 @@
                 {
                     PositionId = 12,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -187,6 +199,7 @@
                 {
                     PositionId = 13,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -197,6 +210,7 @@
                 {
                     PositionId = 14,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -207,6 +221,7 @@
                 {
                     PositionId = 15,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -217,6 +232,7 @@
                 {
                     PositionId = 16,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -227,6 +243,7 @@
                 {
                     PositionId = 17,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -237,6 +254,7 @@
                 {
                     PositionId = 18,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -247,6 +265,7 @@
                 {
                     PositionId = 19,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -257,6 +276,7 @@
                 {
                     PositionId = 20,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -267,6 +287,7 @@
                 {
                     PositionId = 21,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -498,11 +519,11 @@
                     Wage = 75000,
                     WorkEmail = "tammy.winslow@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(1).DOH.AddDays(90),
+                    StartOfBenefits = new DateTime(2005, 07, 13).AddDays(90),
                     LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(75)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(1).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedLifetime = 15 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 15 * 12 * pDays,
+                    SickDaysAccruedLifetime = 15 * 12 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -523,11 +544,11 @@
                     Wage = 89000,
                     WorkEmail = "cassidy.pfannerstill@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(2).DOH.AddDays(90),
-                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(33)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(2).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    StartOfBenefits = new DateTime(2011, 02, 19).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(75)),
+                    VacationDaysAccruedLifetime = 12 * 9 * vDays,
+                    PersonalDaysAccruedLifetime = 12 * 9 * pDays,
+                    SickDaysAccruedLifetime = 12 * 9 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -549,11 +570,11 @@
                     Wage = 61000,
                     WorkEmail = "jeff.shields@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(3).DOH.AddDays(90),
-                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(8)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(3).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    StartOfBenefits = new DateTime(2017, 11, 06).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(75)),
+                    VacationDaysAccruedLifetime = 12 * 3 * vDays,
+                    PersonalDaysAccruedLifetime = 12 * 3 * pDays,
+                    SickDaysAccruedLifetime = 12 * 3 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -574,11 +595,11 @@
                     Wage = 145000,
                     WorkEmail = "percy.champlin@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(4).DOH.AddDays(90),
-                    LastReview = context.PersonnelDbSet.Find(4).DOT.Value.Subtract(TimeSpan.FromDays(37)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(4).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    StartOfBenefits = new DateTime(1999, 03, 07).AddDays(90),
+                    LastReview = new DateTime(2019, 05, 27).Subtract(TimeSpan.FromDays(75)),
+                    VacationDaysAccruedLifetime = 12 * 20 * vDays,
+                    PersonalDaysAccruedLifetime = 12 * 20 * pDays,
+                    SickDaysAccruedLifetime = 12 * 20 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -600,7 +621,7 @@
                     Wage = 94000,
                     WorkEmail = "kailyn.douglas@company.com",
                     HasBenefits = false,
-                    StartOfBenefits = context.PersonnelDbSet.Find(5).DOH.AddDays(90),
+                    StartOfBenefits = DateTime.Now.Subtract(TimeSpan.FromDays(67)).AddDays(90),
                     LastReview = default,
                     VacationDaysAccruedLifetime = default,
                     PersonalDaysAccruedLifetime = default,
@@ -627,7 +648,7 @@
                     WorkEmail = "ellis.reinger@company.com",
                     HasBenefits = default,
                     StartOfBenefits = default,
-                    LastReview = context.PersonnelDbSet.Find(6).DOT.Value,
+                    LastReview = new DateTime(2019, 07, 19).Subtract(TimeSpan.FromDays(75)),
                     VacationDaysAccruedLifetime = default,
                     PersonalDaysAccruedLifetime = default,
                     SickDaysAccruedLifetime = default,
@@ -651,11 +672,11 @@
                     Wage = 115000,
                     WorkEmail = "sulin.park@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(7).DOH.AddDays(90),
-                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(21)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(7).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    StartOfBenefits = new DateTime(1992, 08, 01).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(75)),
+                    VacationDaysAccruedLifetime = 18 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 18 * 12 * pDays,
+                    SickDaysAccruedLifetime = 18 * 12 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -676,11 +697,11 @@
                     Wage = 35000,
                     WorkEmail = "mackenzie.lairmore@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(8).DOH.AddDays(90),
-                    LastReview = context.PersonnelDbSet.Find(8).DOT.Value.Subtract(TimeSpan.FromDays(47)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(8).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    StartOfBenefits = new DateTime(2009, 07, 11).AddDays(90),
+                    LastReview = new DateTime(2019, 06, 02).Subtract(TimeSpan.FromDays(23)),
+                    VacationDaysAccruedLifetime = 10 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 10 * 12 * pDays,
+                    SickDaysAccruedLifetime = 10 * 12 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
@@ -701,11 +722,11 @@
                     Wage = 58000,
                     WorkEmail = "ralph.kirlin@company.com",
                     HasBenefits = true,
-                    StartOfBenefits = context.PersonnelDbSet.Find(9).DOH.AddDays(90),
+                    StartOfBenefits = new DateTime(2014, 04, 15).AddDays(90),
                     LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(2)),
-                    VacationDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * vDays,
-                    PersonalDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * pDays,
-                    SickDaysAccruedLifetime = Convert.ToDouble(((context.WorkInfoDbSet.Find(9).StartOfBenefits.Year) - DateTime.Now.Year) * -12) * sDays,
+                    VacationDaysAccruedLifetime = 6 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 6 * 12 * pDays,
+                    SickDaysAccruedLifetime = 6 * 12 * sDays,
                     VacationDaysAccruedForPeriod = vDays,
                     PersonalDaysAccruedForPeriod = pDays,
                     SickDaysAccruedForPeriod = sDays,
