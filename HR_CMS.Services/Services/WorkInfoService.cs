@@ -315,6 +315,28 @@ namespace HR_CMS.Services
                 return query.ToArray();
             }
         }
+        public IEnumerable<GetAllLeadership> GetAllExecutives()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsExecutive == true)
+                    .Select(e => new GetAllLeadership
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
 
     }
 }

@@ -12,20 +12,26 @@ using System.Web.Http.Results;
 namespace HR_CMS.WebAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Position")]
     public class PositionController : ApiController
     {
-        [Authorize]
+        
         private PositionService CreatePositionService()
         {
             var createService = new PositionService();
             return createService;
         }
+        [Route("GetAll")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             PositionService positionService = CreatePositionService();
             var positions = positionService.GetPositions();
             return Ok(positions);
         }
+
+        [Route("Create")]
+        [HttpPost]
         public IHttpActionResult Post(PositionCreate position)
         {
             if (!ModelState.IsValid)
@@ -39,12 +45,27 @@ namespace HR_CMS.WebAPI.Controllers
             }
             return Ok();
         }
-        public IHttpActionResult Get(int id)
+
+        [Route("Position/{PositionId}")]
+        [HttpGet]
+        public IHttpActionResult GetPositionByPositionId(int PositionId)
         {
             PositionService positionService = CreatePositionService();
-            var position = positionService.GetPositionById(id);
+            var position = positionService.GetPositionById(PositionId);
             return Ok(position);
         }
+
+        [Route("Position/{DeptId}")]
+        [HttpGet]
+        public IHttpActionResult GetPositionByDeptId(int DeptId)
+        {
+            PositionService positionService = CreatePositionService();
+            var position = positionService.GetPositionsByDept(DeptId);
+            return Ok(position);
+        }
+
+        [Route("Edit")]
+        [HttpPut]
         public IHttpActionResult Put(PositionDetail position)
         {
             if (!ModelState.IsValid)

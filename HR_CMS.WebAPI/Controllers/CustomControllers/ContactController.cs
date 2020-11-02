@@ -10,6 +10,7 @@ using System.Web.Http;
 namespace HR_CMS.WebAPI.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Contact")]
     public class ContactController : ApiController
     {
         private ContactService CreateContactService()
@@ -17,7 +18,8 @@ namespace HR_CMS.WebAPI.Controllers
             var createService = new ContactService();
             return createService;
         }
-
+        [Route("GetAll")]
+        [HttpGet]
         public IHttpActionResult Get()
         {
             ContactService contactService = CreateContactService();
@@ -25,6 +27,8 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(notes);
         }
 
+        [Route("Create")]
+        [HttpPost]
         public IHttpActionResult Post(ContactCreate contact)
         {
             if (!ModelState.IsValid)
@@ -38,20 +42,26 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Get(int id)
+        [Route("Contact/{PersonnelId}")]
+        [HttpGet]
+        public IHttpActionResult Get(int PersonnelId)
         {
             ContactService contactService = CreateContactService();
-            var contact = contactService.GetContactByPersonnelId(id);
+            var contact = contactService.GetContactByPersonnelId(PersonnelId);
             return Ok(contact);
         }
-        [Route("api/Contact/Active")]
+
+        [Route("AllActive")]
+        [HttpGet]
         public IHttpActionResult GetAllActive()
         {
             ContactService contactService = CreateContactService();
             var contact = contactService.GetContactForAllActive();
             return Ok(contact);
         }
-        [Route("api/Contact/Inactive")]
+
+        [Route("AllInactive")]
+        [HttpGet]
         public IHttpActionResult GetAllInactive()
         {
             ContactService contactService = CreateContactService();
@@ -59,6 +69,8 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(contact);
         }
 
+        [Route("Edit")]
+        [HttpPut]
         public IHttpActionResult Put(ContactDetail contact)
         {
             if (!ModelState.IsValid)
