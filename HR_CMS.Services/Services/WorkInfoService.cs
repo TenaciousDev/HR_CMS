@@ -39,7 +39,9 @@ namespace HR_CMS.Services
                 SickDaysAccruedLifetime = model.SickDaysAccruedLifetime,
                 SickDaysUsedLifetime = model.SickDaysUsedLifetime,
                 SickDaysAccruedForPeriod = model.SickDaysAccruedForPeriod,
+
                 SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
+
 
 
             };
@@ -49,7 +51,6 @@ namespace HR_CMS.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public bool EditWorkInfo(WorkInfoEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -62,7 +63,6 @@ namespace HR_CMS.Services
                 entity.NextReview = model.NextReview;
                 entity.HasBenefits = model.HasBenefits;
                 entity.StartOfBenefits = model.StartOfBenefits;
-
                 entity.VacationDaysUsedLifetime += model.VacationDaysUsedLifetime;
                 entity.VacationDaysUsedForPeriod += model.VacationDaysUsedForPeriod;
                 entity.PersonalDaysUsedLifetime += model.PersonalDaysUsedLifetime;
@@ -75,12 +75,9 @@ namespace HR_CMS.Services
                 entity.PersonalDaysAccruedForPeriod += model.PersonalDaysAccruedForPeriod;
                 entity.SickDaysAccruedLifetime += model.SickDaysAccruedLifetime;
                 entity.SickDaysAccruedForPeriod += model.SickDaysAccruedForPeriod;
-
-
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public WorkInfoDetail GetWorkInfoByPersonnelId(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -140,7 +137,6 @@ namespace HR_CMS.Services
                 }
             }
         }
-
         //Stretch Goal
 /*
         public WorkInfoDetail GetSupervisorByPersonnelId(int id)
