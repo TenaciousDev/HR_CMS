@@ -18,8 +18,7 @@
 
         protected override void Seed(HR_CMS.Data.ApplicationDbContext context)
         {
-            //REMOVE THIS TO ACCESS SEED DATA
-            return;
+            //return; // <-- comment for seed content / uncomment for no seed content
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
@@ -67,6 +66,7 @@
                 {
                     PositionId = 1,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -77,6 +77,7 @@
                 {
                     PositionId = 2,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -87,6 +88,7 @@
                 {
                     PositionId = 3,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -97,6 +99,7 @@
                 {
                     PositionId = 4,
                     DeptId = 1,
+                    Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -107,6 +110,7 @@
                 {
                     PositionId = 5,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -117,6 +121,7 @@
                 {
                     PositionId = 6,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -127,6 +132,7 @@
                 {
                     PositionId = 7,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -137,6 +143,7 @@
                 {
                     PositionId = 8,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -147,6 +154,7 @@
                 {
                     PositionId = 9,
                     DeptId = 2,
+                    Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Temp. Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -157,6 +165,7 @@
                 {
                     PositionId = 10,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -167,6 +176,7 @@
                 {
                     PositionId = 11,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -177,6 +187,7 @@
                 {
                     PositionId = 12,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -187,6 +198,7 @@
                 {
                     PositionId = 13,
                     DeptId = 3,
+                    Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -197,6 +209,7 @@
                 {
                     PositionId = 14,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -207,6 +220,7 @@
                 {
                     PositionId = 15,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -217,6 +231,7 @@
                 {
                     PositionId = 16,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -227,6 +242,7 @@
                 {
                     PositionId = 17,
                     DeptId = 4,
+                    Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,
@@ -237,6 +253,7 @@
                 {
                     PositionId = 18,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Executive Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -247,6 +264,7 @@
                 {
                     PositionId = 19,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Director",
                     IsSupervisor = true,
                     IsDirector = true,
@@ -257,6 +275,7 @@
                 {
                     PositionId = 20,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Supervisor",
                     IsSupervisor = true,
                     IsDirector = false,
@@ -267,6 +286,7 @@
                 {
                     PositionId = 21,
                     DeptId = 5,
+                    Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Associate",
                     IsSupervisor = false,
                     IsDirector = false,

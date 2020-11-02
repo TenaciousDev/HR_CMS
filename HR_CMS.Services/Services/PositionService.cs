@@ -86,6 +86,7 @@ namespace HR_CMS.Services
                         PositionId = entity.PositionId,
                         PositionTitle = entity.PositionTitle,
                         DeptId = entity.DeptId,
+                        DeptName = entity.Department.DeptName,
                         IsSupervisor = entity.IsSupervisor,
                         IsDirector = entity.IsDirector,
                         IsExecutive = entity.IsExecutive,
