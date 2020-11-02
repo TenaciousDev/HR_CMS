@@ -11,14 +11,15 @@ namespace HR_CMS.Models
 {
     public class ContactDetail
     {
+        [Required]
         public int PersonnelId { get; set; }
-
+        [Required]
         public int ContactId { get; set; }
-
+        [Required]
         public string PhoneNumber { get; set; }
-
+        [Required]
         public string Email { get; set; }
-
+        [Required]
         public string Address { get; set; }
     }
 }
