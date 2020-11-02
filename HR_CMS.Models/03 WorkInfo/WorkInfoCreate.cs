@@ -2,14 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Schema;
+
 
 namespace HR_CMS.Models
 {
@@ -17,7 +16,6 @@ namespace HR_CMS.Models
     {
         [Required]
         public int? PersonnelId { get; set; }
-        [ForeignKey(nameof(PersonnelId))]
         public virtual Personnel Personnel { get; set; }
         [Required]
         public int PositionId { get; set; }

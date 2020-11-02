@@ -14,6 +14,9 @@ namespace HR_CMS.Services
     {
         public bool CreateWorkInfo(WorkInfoCreate model)
         {
+            PersonnelService ps = new PersonnelService();
+            int model1 = (int)model.PersonnelId;
+            PersonnelDetail varA = ps.GetPersonnelById(model1); 
             var entity = new WorkInfo()
             {
                 PersonnelId = model.PersonnelId,
@@ -22,23 +25,25 @@ namespace HR_CMS.Services
                 Wage = model.Wage,
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
-                PositionHeld = model.Position,
-                Contact = model.Contact,
-                StartOfBenefits = model.Personnel.DOH.AddDays(90),
-                HasBenefits = model.HasBenefits,
-                NextReview = model.NextReview,
+                StartOfBenefits = varA.DOH.AddDays(90),
+                //HasBenefits = model.HasBenefits,
+                //NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
-                //VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
+                VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
                 VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
                 VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
                 PersonalDaysAccruedLifetime = model.PersonalDaysAccruedLifetime,
-                //PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
+                PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
                 PersonalDaysAccruedForPeriod = model.PersonalDaysAccruedForPeriod,
-                //PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
+                PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
                 SickDaysAccruedLifetime = model.SickDaysAccruedLifetime,
-                //SickDaysUsedLifetime = model.SickDaysUsedLifetime,
+                SickDaysUsedLifetime = model.SickDaysUsedLifetime,
                 SickDaysAccruedForPeriod = model.SickDaysAccruedForPeriod,
-                //SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
+
+                SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
+
+
+
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -290,6 +295,28 @@ namespace HR_CMS.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsSupervisor == true)
+                    .Select(e => new GetAllLeadership
+                    {
+                        WorkInfoId = e.WorkInfoId,
+                        PositionId = e.PositionId,
+                        ContactId = e.ContactId,
+                        PersonnelId = e.PersonnelId,
+                        FirstName = e.Personnel.FirstName,
+                        LastName = e.Personnel.LastName,
+                        PositionTitle = e.PositionHeld.PositionTitle,
+                        DeptName = e.PositionHeld.Department.DeptName,
+                        Wage = e.Wage,
+                        WorkEmail = e.WorkEmail,
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+        public IEnumerable<GetAllLeadership> GetAllExecutives()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.IsExecutive == true)
                     .Select(e => new GetAllLeadership
                     {
                         WorkInfoId = e.WorkInfoId,
