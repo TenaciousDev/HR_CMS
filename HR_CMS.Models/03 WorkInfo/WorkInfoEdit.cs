@@ -25,6 +25,8 @@ namespace HR_CMS.Models
         public DateTimeOffset StartOfBenefits { get; set; }
         [Required]
         public DateTimeOffset LastReview { get; set; }
+
+        //not required because generated via method
         public DateTimeOffset NextReview
         {
             get
@@ -39,7 +41,7 @@ namespace HR_CMS.Models
                 }
             }
         }
-
+        //Not required, because coded differently in services, if left blank during edit, results in no change. 
         public double VacationDaysUsedLifetime { get; set; }
         public double VacationDaysUsedForPeriod { get; set; }
         public double PersonalDaysUsedLifetime { get; set; }
