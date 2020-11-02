@@ -42,7 +42,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok();
         }
 
-        [Route("Contact/{PersonnelId}")]
+        [Route("{PersonnelId}")]
         [HttpGet]
         public IHttpActionResult Get(int PersonnelId)
         {

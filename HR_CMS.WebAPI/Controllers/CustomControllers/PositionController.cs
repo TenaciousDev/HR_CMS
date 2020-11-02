@@ -46,7 +46,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok();
         }
 
-        [Route("Position/{PositionId}")]
+        [Route("{PositionId}")]
         [HttpGet]
         public IHttpActionResult GetPositionByPositionId(int PositionId)
         {
@@ -55,7 +55,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok(position);
         }
 
-        [Route("Position/{DeptId}")]
+        [Route("ByDept/{DeptId}")]
         [HttpGet]
         public IHttpActionResult GetPositionByDeptId(int DeptId)
         {

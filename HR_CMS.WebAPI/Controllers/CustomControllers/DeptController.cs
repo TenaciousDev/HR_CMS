@@ -43,7 +43,7 @@ namespace HR_CMS.WebAPI.Controllers
             return Ok();
         }
 
-        [Route("Dept/{DeptId}")]
+        [Route("{DeptId}")]
         [HttpGet]
         public IHttpActionResult Get(int DeptId)
         {

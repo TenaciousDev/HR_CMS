@@ -14,6 +14,9 @@ namespace HR_CMS.Services
     {
         public bool CreateWorkInfo(WorkInfoCreate model)
         {
+            PersonnelService ps = new PersonnelService();
+            int model1 = (int)model.PersonnelId;
+            PersonnelDetail varA = ps.GetPersonnelById(model1); 
             var entity = new WorkInfo()
             {
                 PersonnelId = model.PersonnelId,
@@ -22,23 +25,21 @@ namespace HR_CMS.Services
                 Wage = model.Wage,
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
-                PositionHeld = model.Position,
-                Contact = model.Contact,
-                StartOfBenefits = model.Personnel.DOH.AddDays(90),
-                HasBenefits = model.HasBenefits,
-                NextReview = model.NextReview,
+                StartOfBenefits = varA.DOH.AddDays(90),
+                //HasBenefits = model.HasBenefits,
+                //NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
-                //VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
+                VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
                 VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
                 VacationDaysUsedForPeriod = model.VacationDaysUsedForPeriod,
                 PersonalDaysAccruedLifetime = model.PersonalDaysAccruedLifetime,
-                //PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
+                PersonalDaysUsedLifetime = model.PersonalDaysUsedLifetime,
                 PersonalDaysAccruedForPeriod = model.PersonalDaysAccruedForPeriod,
-                //PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
+                PersonalDaysUsedForPeriod = model.PersonalDaysUsedForPeriod,
                 SickDaysAccruedLifetime = model.SickDaysAccruedLifetime,
-                //SickDaysUsedLifetime = model.SickDaysUsedLifetime,
+                SickDaysUsedLifetime = model.SickDaysUsedLifetime,
                 SickDaysAccruedForPeriod = model.SickDaysAccruedForPeriod,
-                //SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
+                SickDaysUsedForPeriod = model.SickDaysUsedForPeriod
 
 
             };
