@@ -19,11 +19,8 @@ namespace HR_CMS.Models
         public decimal Wage { get; set; }
         [Required]
         public string WorkEmail { get; set; }
-        [Required]
         public bool HasBenefits { get; set; }
-        [Required]
         public DateTimeOffset StartOfBenefits { get; set; }
-        [Required]
         public DateTimeOffset LastReview { get; set; }
 
         //not required because generated via method
