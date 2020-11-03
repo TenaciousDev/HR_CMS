@@ -8,5 +8,8 @@ namespace HR_CMS.Models
 {
     public class DeptListItem
     {
+        public int DeptId { get; set; }
+        public string DeptName { get; set; }
+        public int PersonnelCount { get; set; }
     }
 }

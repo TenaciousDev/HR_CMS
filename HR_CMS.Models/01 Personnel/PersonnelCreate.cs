@@ -9,5 +9,17 @@ namespace HR_CMS.Models
 {
     public class PersonnelCreate
     {
+        [Required]
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public string SSN { get; set; }
+        [Required]
+        public DateTimeOffset DOB { get; set; }
+        [Required]
+        public DateTimeOffset DOH { get; set; }
+        public DateTimeOffset? DOT { get; set; }
     }
 }

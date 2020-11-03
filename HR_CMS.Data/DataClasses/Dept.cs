@@ -9,5 +9,12 @@ namespace HR_CMS.Data
 {
     public class Dept
     {
+        [Key]
+        public int DeptId { get; set; }
+
+        [Required]
+        public string DeptName { get; set; }
+
+        public int PersonnelCount { get; set; }
     }
 }
