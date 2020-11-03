@@ -14,10 +14,10 @@ namespace HR_CMS.Models
         public int PositionId { get; set; }
         public int ContactId { get; set; }
         public decimal Wage { get; set; }
-        public DateTimeOffset LastReview { get; set; }
-        public DateTimeOffset NextReview { get; set; }
+        public DateTimeOffset? LastReview { get; set; }
+        public DateTimeOffset? NextReview { get; set; }
         public bool HasBenefits { get; set; }
-        public DateTimeOffset StartOfBenefits { get; set; }
+        public DateTimeOffset? StartOfBenefits { get; set; }
         public string WorkEmail { get; set; }
         public double VacationDaysAccruedLifetime { get; set; }
         public double VacationDaysUsedLifetime { get; set; }

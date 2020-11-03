@@ -30,28 +30,28 @@ namespace HR_CMS.Models
         {
             get
             {
-                if ((DateTimeOffset.Now - StartOfBenefits).TotalDays >= 90)
+                if ((DateTimeOffset.Now - StartOfBenefits).Value.TotalDays >= 90)
                 {
                     return true;
                 }
                 return false;
             }
         }
-        public DateTimeOffset StartOfBenefits { get; set; }
+        public DateTimeOffset? StartOfBenefits { get; set; }
         [Required]
         public string WorkEmail { get; set; }
-        public DateTimeOffset LastReview { get; set; }
-        public DateTimeOffset NextReview
+        public DateTimeOffset? LastReview { get; set; }
+        public DateTimeOffset? NextReview
         {
             get
             {
-                if (LastReview.Date.Equals(default))
+                if (LastReview.Equals(null))
                 {
                     return DateTime.Now.AddDays(30);
                 }
                 else
                 {
-                    return LastReview.Date.AddDays(90);
+                    return LastReview.Value.Date.AddDays(90);
                 }
             }
         }

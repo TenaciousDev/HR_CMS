@@ -124,6 +124,26 @@
     <Compile Include="Migrations\202010301417329_ChangedSSNToStringFromInt.designer.cs">
       <DependentUpon>202010301417329_ChangedSSNToStringFromInt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011031432392_MadeWorkInfoDateTimeOffsetsNullable.cs" />
+    <Compile Include="Migrations\202011031432392_MadeWorkInfoDateTimeOffsetsNullable.designer.cs">
+      <DependentUpon>202011031432392_MadeWorkInfoDateTimeOffsetsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011031603016_TryingToFixValidationFailure.cs" />
+    <Compile Include="Migrations\202011031603016_TryingToFixValidationFailure.designer.cs">
+      <DependentUpon>202011031603016_TryingToFixValidationFailure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011031613332_ErrorChecking.cs" />
+    <Compile Include="Migrations\202011031613332_ErrorChecking.designer.cs">
+      <DependentUpon>202011031613332_ErrorChecking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011031623430_MoreCheckiing.cs" />
+    <Compile Include="Migrations\202011031623430_MoreCheckiing.designer.cs">
+      <DependentUpon>202011031623430_MoreCheckiing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011031643566_FixedIt.cs" />
+    <Compile Include="Migrations\202011031643566_FixedIt.designer.cs">
+      <DependentUpon>202011031643566_FixedIt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +182,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010301417329_ChangedSSNToStringFromInt.resx">
       <DependentUpon>202010301417329_ChangedSSNToStringFromInt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031432392_MadeWorkInfoDateTimeOffsetsNullable.resx">
+      <DependentUpon>202011031432392_MadeWorkInfoDateTimeOffsetsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031603016_TryingToFixValidationFailure.resx">
+      <DependentUpon>202011031603016_TryingToFixValidationFailure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031613332_ErrorChecking.resx">
+      <DependentUpon>202011031613332_ErrorChecking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031623430_MoreCheckiing.resx">
+      <DependentUpon>202011031623430_MoreCheckiing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011031643566_FixedIt.resx">
+      <DependentUpon>202011031643566_FixedIt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\HR_CMS.Data.Migrations.InitialCreate.resources" />
   </ItemGroup>

@@ -69,8 +69,8 @@
                     DeptId = 1,
                     Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Executive Director",
-                    IsSupervisor = true,
-                    IsDirector = true,
+                    IsSupervisor = false,
+                    IsDirector = false,
                     IsExecutive = true
                 },
                 //HR Director
@@ -80,7 +80,7 @@
                     DeptId = 1,
                     Department = context.DeptDbSet.Find(1),
                     PositionTitle = "Director",
-                    IsSupervisor = true,
+                    IsSupervisor = false,
                     IsDirector = true,
                     IsExecutive = false
                 },
@@ -113,8 +113,8 @@
                     DeptId = 2,
                     Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Executive Director",
-                    IsSupervisor = true,
-                    IsDirector = true,
+                    IsSupervisor = false,
+                    IsDirector = false,
                     IsExecutive = true
                 },
                 //Sales Director
@@ -124,7 +124,7 @@
                     DeptId = 2,
                     Department = context.DeptDbSet.Find(2),
                     PositionTitle = "Director",
-                    IsSupervisor = true,
+                    IsSupervisor = false,
                     IsDirector = true,
                     IsExecutive = false
                 },
@@ -168,8 +168,8 @@
                     DeptId = 3,
                     Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Executive Director",
-                    IsSupervisor = true,
-                    IsDirector = true,
+                    IsSupervisor = false,
+                    IsDirector = false,
                     IsExecutive = true
                 },
                 //Marketing Director
@@ -179,7 +179,7 @@
                     DeptId = 3,
                     Department = context.DeptDbSet.Find(3),
                     PositionTitle = "Director",
-                    IsSupervisor = true,
+                    IsSupervisor = false,
                     IsDirector = true,
                     IsExecutive = false
                 },
@@ -212,8 +212,8 @@
                     DeptId = 4,
                     Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Executive Director",
-                    IsSupervisor = true,
-                    IsDirector = true,
+                    IsSupervisor = false,
+                    IsDirector = false,
                     IsExecutive = true
                 },
                 //R&D Director
@@ -223,7 +223,7 @@
                     DeptId = 4,
                     Department = context.DeptDbSet.Find(4),
                     PositionTitle = "Director",
-                    IsSupervisor = true,
+                    IsSupervisor = false,
                     IsDirector = true,
                     IsExecutive = false
                 },
@@ -256,8 +256,8 @@
                     DeptId = 5,
                     Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Executive Director",
-                    IsSupervisor = true,
-                    IsDirector = true,
+                    IsSupervisor = false,
+                    IsDirector = false,
                     IsExecutive = true
                 },
                 //Compliance Director
@@ -267,7 +267,7 @@
                     DeptId = 5,
                     Department = context.DeptDbSet.Find(5),
                     PositionTitle = "Director",
-                    IsSupervisor = true,
+                    IsSupervisor = false,
                     IsDirector = true,
                     IsExecutive = false
                 },
@@ -412,7 +412,66 @@
                     DOB = new DateTime(2001, 03, 17),
                     DOH = DateTime.Now.Subtract(TimeSpan.FromDays(34)),
                     DOT = null
+                },
+                //11: Ed Fergusen, HR Supervisor
+                new Personnel()
+                {
+                    PersonnelId = 11,
+                    FirstName = "Edward",
+                    LastName = "Fergusen",
+                    MiddleName = "Nicholas",
+                    SSN = "127-92-6481",
+                    DOB = new DateTime(1981, 07, 04),
+                    DOH = new DateTime(2005, 08, 16),
+                    DOT = default
+                },
+                //12: Jackie Nuhn, HR Associate
+                new Personnel()
+                {
+                    PersonnelId = 12,
+                    FirstName = "Jacqueline",
+                    LastName = "Nuhn",
+                    SSN = "656-11-0227",
+                    DOB = new DateTime(1997, 01, 25),
+                    DOH = new DateTime(2016, 01, 30),
+                    DOT = new DateTime(2019, 05, 22)
+                },
+                //13: Fred Silk, Compliance Director
+                new Personnel()
+                {
+                    PersonnelId = 13,
+                    FirstName = "Fred",
+                    LastName = "Silk",
+                    MiddleName = "Oswald",
+                    SSN = "133-77-5619",
+                    DOB = new DateTime(1978, 03, 13),
+                    DOH = new DateTime(2011, 12, 02),
+                    DOT = null
+                },
+                //14: Reggie Williams, Marketing Executive Director
+                new Personnel()
+                {
+                    PersonnelId = 14,
+                    FirstName = "Reggie",
+                    LastName = "Williams",
+                    MiddleName = "Samuel",
+                    SSN = "226-14-1207",
+                    DOB = new DateTime(1977, 11, 08),
+                    DOH = new DateTime(2008, 04, 06),
+                    DOT = null
+                },
+                //15: Jun Makoto, Marketing Associate
+                new Personnel()
+                {
+                    PersonnelId = 15,
+                    FirstName = "Jun",
+                    LastName = "Makoto",
+                    SSN = "984-64-3337",
+                    DOB = new DateTime(1999, 01, 01),
+                    DOH = new DateTime(2019, 01, 02),
+                    DOT = null
                 }
+
             );
             //Seed Contact
             context.ContactDbSet.AddOrUpdate(x => x.ContactId,
@@ -505,6 +564,51 @@
                     PhoneNumber = "(883)555-1539",
                     Email = "elvis.is.life@elvisfans.net",
                     Address = "205 Memphis Rd"
+                },
+                //11: Ed Fergusen, HR Supervisor
+                new Contact()
+                {
+                    ContactId = 11,
+                    PersonnelId = 11,
+                    PhoneNumber = "(965)555-6897",
+                    Email = "ed.ferg@email.com",
+                    Address = "346 Greyscale Drive"
+                },
+                //12: Jackie Nuhn, HR Associate
+                new Contact()
+                {
+                    ContactId = 12,
+                    PersonnelId = 12,
+                    PhoneNumber = "(883)555-3491",
+                    Email = "nuhnyabizness@email.com",
+                    Address = "56 Digital Frontier Circle"
+                },
+                //13: Fred Silk, Compliance Director
+                new Contact()
+                {
+                    ContactId = 13,
+                    PersonnelId = 13,
+                    PhoneNumber = "(883)555-5551",
+                    Email = "fred.silk.compliance@email.com",
+                    Address = "425 Marco Polo Parkway"
+                },
+                //14: Reggie Williams, Marketing Executive Director
+                new Contact()
+                {
+                    ContactId = 14,
+                    PersonnelId = 14,
+                    PhoneNumber = "(883)555-4541",
+                    Email = "reggiewill@email.com",
+                    Address = "66 Sabbath Lane"
+                },
+                //15: Jun Makoto, Marketing Associate
+                new Contact()
+                {
+                    ContactId = 15,
+                    PersonnelId = 15,
+                    PhoneNumber = "(883)555-7749",
+                    Email = "truth4good@email.com",
+                    Address = "25681 Airway West Blvd"
                 }
             );
             //Seed WorkInfo
@@ -622,7 +726,7 @@
                     WorkEmail = "kailyn.douglas@company.com",
                     HasBenefits = false,
                     StartOfBenefits = DateTime.Now.Subtract(TimeSpan.FromDays(67)).AddDays(90),
-                    LastReview = default,
+                    LastReview = null,
                     VacationDaysAccruedLifetime = default,
                     PersonalDaysAccruedLifetime = default,
                     SickDaysAccruedLifetime = default,
@@ -748,8 +852,8 @@
                     Wage = 34000,
                     WorkEmail = "kat.mwanza@company.com",
                     HasBenefits = false,
-                    StartOfBenefits = default,
-                    LastReview = default,
+                    StartOfBenefits = null,
+                    LastReview = null,
                     VacationDaysAccruedLifetime = default,
                     PersonalDaysAccruedLifetime = default,
                     SickDaysAccruedLifetime = default,
@@ -762,6 +866,131 @@
                     VacationDaysUsedForPeriod = default,
                     PersonalDaysUsedForPeriod = default,
                     SickDaysUsedForPeriod = default
+                },
+                //11: Ed Fergusen, HR Supervisor
+                new WorkInfo()
+                {
+                    WorkInfoId = 11,
+                    ContactId = 11,
+                    PersonnelId = 11,
+                    PositionId = 3,
+                    Wage = 65000,
+                    WorkEmail = "ed.fergusen@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = new DateTime(2005, 08, 16).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(5)),
+                    VacationDaysAccruedLifetime = 15 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 15 * 12 * pDays,
+                    SickDaysAccruedLifetime = 15 * 12 * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 90,
+                    PersonalDaysUsedLifetime = 15,
+                    SickDaysUsedLifetime = 23,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 2,
+                    SickDaysUsedForPeriod = 3
+                },
+                //12: Jackie Nuhn, HR Associate
+                new WorkInfo()
+                {
+                    WorkInfoId = 12,
+                    ContactId = 12,
+                    PersonnelId = 12,
+                    PositionId = 4,
+                    Wage = 38500,
+                    WorkEmail = "jackie.nuhn@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = new DateTime(2016, 01, 30).AddDays(90),
+                    LastReview = new DateTime(2019, 05, 22).Subtract(TimeSpan.FromDays(35)),
+                    VacationDaysAccruedLifetime = 3 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 3 * 12 * pDays,
+                    SickDaysAccruedLifetime = 3 * 12 * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 15,
+                    PersonalDaysUsedLifetime = 32,
+                    SickDaysUsedLifetime = 25,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
+                },
+                //13: Fred Silk, Compliance Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 13,
+                    ContactId = 13,
+                    PersonnelId = 13,
+                    PositionId = 19,
+                    Wage = 89000,
+                    WorkEmail = "fred.silk@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = new DateTime(2011, 12, 02).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(87)),
+                    VacationDaysAccruedLifetime = 9 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 9 * 12 * pDays,
+                    SickDaysAccruedLifetime = 9 * 12 * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 63,
+                    PersonalDaysUsedLifetime = 8,
+                    SickDaysUsedLifetime = 13,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 1,
+                    SickDaysUsedForPeriod = 0
+                },
+                //14: Reggie Williams, Marketing Executive Director
+                new WorkInfo()
+                {
+                    WorkInfoId = 14,
+                    ContactId = 14,
+                    PersonnelId = 14,
+                    PositionId = 10,
+                    Wage = 135000,
+                    WorkEmail = "reggie.williams@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = new DateTime(2008, 04, 06).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(2)),
+                    VacationDaysAccruedLifetime = 12 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 12 * 12 * pDays,
+                    SickDaysAccruedLifetime = 12 * 12 * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 14,
+                    PersonalDaysUsedLifetime = 2,
+                    SickDaysUsedLifetime = 0,
+                    VacationDaysUsedForPeriod = 14,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
+                },
+                //15: Jun Makoto, Marketing Associate
+                new WorkInfo()
+                {
+                    WorkInfoId = 15,
+                    ContactId = 15,
+                    PersonnelId = 15,
+                    PositionId = 13,
+                    Wage = 65000,
+                    WorkEmail = "jun.makoto@company.com",
+                    HasBenefits = true,
+                    StartOfBenefits = new DateTime(2019, 01, 02).AddDays(90),
+                    LastReview = DateTime.Now.Subtract(TimeSpan.FromDays(2)),
+                    VacationDaysAccruedLifetime = 1 * 12 * vDays,
+                    PersonalDaysAccruedLifetime = 1 * 12 * pDays,
+                    SickDaysAccruedLifetime = 1 * 12 * sDays,
+                    VacationDaysAccruedForPeriod = vDays,
+                    PersonalDaysAccruedForPeriod = pDays,
+                    SickDaysAccruedForPeriod = sDays,
+                    VacationDaysUsedLifetime = 0,
+                    PersonalDaysUsedLifetime = 0,
+                    SickDaysUsedLifetime = 0,
+                    VacationDaysUsedForPeriod = 0,
+                    PersonalDaysUsedForPeriod = 0,
+                    SickDaysUsedForPeriod = 0
                 }
             );
         }
