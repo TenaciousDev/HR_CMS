@@ -457,7 +457,7 @@
                 {
                     ContactId = 5,
                     PersonnelId = 5,
-                    PhoneNumber = "(883)555-0421",
+                    PhoneNumber = "(883)555-0271",
                     Email = "workerbee511@email.net",
                     Address = "2503 Colton Ave"
                 },
@@ -502,7 +502,7 @@
                 {
                     ContactId = 10,
                     PersonnelId = 10,
-                    PhoneNumber = "(883)555-0421",
+                    PhoneNumber = "(883)555-1539",
                     Email = "elvis.is.life@elvisfans.net",
                     Address = "205 Memphis Rd"
                 }
