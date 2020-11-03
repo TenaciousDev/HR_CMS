@@ -16,7 +16,7 @@ namespace HR_CMS.Services
         {
             PersonnelService ps = new PersonnelService();
             int model1 = (int)model.PersonnelId;
-            PersonnelDetail varA = ps.GetPersonnelById(model1); 
+            PersonnelListItem varA = ps.GetPersonnelById(model1); 
             var entity = new WorkInfo()
             {
                 PersonnelId = model.PersonnelId,
@@ -26,8 +26,6 @@ namespace HR_CMS.Services
                 WorkEmail = model.WorkEmail,
                 LastReview = model.LastReview,
                 StartOfBenefits = varA.DOH.AddDays(90),
-                //HasBenefits = model.HasBenefits,
-                //NextReview = model.NextReview,
                 VacationDaysAccruedLifetime = model.VacationDaysAccruedLifetime,
                 VacationDaysUsedLifetime = model.VacationDaysUsedLifetime,
                 VacationDaysAccruedForPeriod = model.VacationDaysAccruedForPeriod,
@@ -137,26 +135,6 @@ namespace HR_CMS.Services
                 }
             }
         }
-        //Stretch Goal
-/*
-        public WorkInfoDetail GetSupervisorByPersonnelId(int id)
-        {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    var entity = ctx.WorkInfoDbSet.Where(e => e.PositionHeld.DeptId != 0).Single(e => e.PersonnelId == id);
-                    return new WorkInfoDetail
-                    {
-                        PositionTitle = entity.PositionHeld.PositionTitle,
-                        
-                    };
-                }
-        }
-        
-        public WorkInfoDetail GetDirectorByPersonnelId(int id)
-        {
-
-        }
-*/
         public IEnumerable<WorkInfoListItem> GetPersonnelByDeptId(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -215,9 +193,7 @@ namespace HR_CMS.Services
                     PositionId = e.PositionId,
                     ContactId = e.ContactId,
                     Wage = e.Wage,
-                    //StartOfBenefits = e.StartOfBenefits,
                     WorkEmail = e.WorkEmail,
-                    //LINE BREAK - REMOVE PROPERTIES BELOW IF IMPLEMENTING STRETCH GOALS
                     FirstName = e.Personnel.FirstName,
                     LastName = e.Personnel.LastName,
                     PositionTitle = e.PositionHeld.PositionTitle,
