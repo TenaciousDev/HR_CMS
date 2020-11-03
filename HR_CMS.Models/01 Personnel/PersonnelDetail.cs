@@ -13,7 +13,6 @@ namespace HR_CMS.Models
         public int PersonnelId { get; set; }
         [Required]
         public string FirstName { get; set; }
-        [Required]
         public string MiddleName { get; set; }
         [Required]
         public string LastName { get; set; }
@@ -23,7 +22,5 @@ namespace HR_CMS.Models
         public DateTimeOffset DOB { get; set; }
         [Required]
         public DateTimeOffset DOH { get; set; }
-        
-        public DateTimeOffset? DOT { get; set; }
     }
 }
