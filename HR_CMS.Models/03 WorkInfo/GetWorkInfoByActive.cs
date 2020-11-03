@@ -12,7 +12,7 @@ namespace HR_CMS.Models._03_WorkInfo
         public int PositionId { get; set; }
         public int ContactId { get; set; }
         public decimal Wage { get; set; }
-        public DateTimeOffset StartOfBenefits { get; set; }
+        public DateTimeOffset? StartOfBenefits { get; set; }
         public string WorkEmail { get; set; }
 
     }
