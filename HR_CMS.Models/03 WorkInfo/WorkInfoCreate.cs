@@ -30,7 +30,11 @@ namespace HR_CMS.Models
         {
             get
             {
-                if ((DateTimeOffset.Now - StartOfBenefits).Value.TotalDays >= 90)
+                if (StartOfBenefits == null)
+                {
+                    return false;
+                }
+                else if ((DateTimeOffset.Now - StartOfBenefits.Value.Date).TotalDays >= 90)
                 {
                     return true;
                 }
